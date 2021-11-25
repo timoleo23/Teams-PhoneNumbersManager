@@ -10,15 +10,21 @@ Write-Host "PowerShell HTTP trigger function processed a request."
 $StatusCode = [HttpStatusCode]::OK
 $Resp = ConvertTo-Json @()
 
-# Get query parameters to search through Azure AD groups
+# Get query parameters to search user profile info - REQUIRED parameter
 $SearchString = $Request.Query.SearchString
+If ([string]::IsNullOrWhiteSpace($SearchString)){
+    $Resp = @{ "Error" = "Missing query parameter - Please provide UPN via query string ?SearchString=UPN" }
+    $StatusCode =  [HttpStatusCode]::BadRequest
 
-# Authenticate to AzureAD using service account
+}
+
+# Authenticate to AzureAD and Microsoft Teams using service account
 $Account = $env:AdminAccountLogin 
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
 Try {
+    Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
     Connect-AzureAD -Credential $Credential -ErrorAction:Stop
 }
 Catch {
@@ -30,7 +36,14 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        $Resp = Get-AzureADGroup -SearchString $SearchString | select-object ObjectType,DisplayName,Mail,ObjectId | ConvertTo-Json
+        $userInfos = Get-CsOnlineUser $SearchString | Select-Object -Property objectID,DisplayName,UserPrincipalName,UsageLocation,LineURI,EnterpriseVoiceEnabled,HostedVoiceMail,@{Name='VoicePolicy';Expression={If($_.VoicePolicy -eq "BusinessVoice"){[string]$_.VoicePolicy + " | Calling Plans"} Else {[string]$_.VoicePolicy + " | on-prem routing"}}},TeamsCallingPolicy
+        $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectId | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
+        if (-not([string]::IsNullOrWhiteSpace($CallingPlan))) {
+            $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $CallingPlan.SkuPartNumber 
+        } else {
+            $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $null 
+        }
+        $Resp = $yserInfos | ConvertTo-Json
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
@@ -47,6 +60,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 })
 
 Disconnect-AzureAD
+Disconnect-MicrosoftTeams
 
 # Trap all other exceptions that may occur at runtime and EXIT Azure Function
 Trap {

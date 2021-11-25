@@ -21,3 +21,4 @@
 
 # You can also define functions or aliases that can be referenced in any of your PowerShell functions.
 Import-Module AzureAD -UseWindowsPowerShell
+Import-Module MicrosoftTeams
