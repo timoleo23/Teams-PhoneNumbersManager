@@ -27,12 +27,7 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        If (-not $Request.Query.Filter) {
-            $Resp = Get-CsTeamsCallingPolicy | select-object -Property Identity,@{Name='DisplayName';Expression={$_.Identity.Replace('Tag:','')}} | ConvertTo-Json
-        }
-        Else {
-            $Resp = Get-CsTeamsCallingPolicy -Filter $Request.Query.Filter | select-object -Property Identity,@{Name='DisplayName';Expression={$_.Identity.Replace('Tag:','')}} | ConvertTo-Json
-        }
+        $Resp = Get-CsOnlineLisLocation | Select-Object DefaultLocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
