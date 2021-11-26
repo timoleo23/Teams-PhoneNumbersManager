@@ -1,0 +1,5015 @@
+{
+  "CmdletConfiguration": {
+    "Connect-CsConfigAPI": {
+      "CmdletType": "Custom",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Disconnect-CsConfigAPI": {
+      "CmdletType": "Custom",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantObou": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Get-CsUser": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Get-CsInternalConfigApiModuleVersion": {
+      "CmdletType": "Custom",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Get-CsSessionState": {
+      "CmdletType": "Custom",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Set-CsSessionState": {
+      "CmdletType": "Custom",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Get-CsOdcLanguagesSupported": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Get-CsOdcBridge": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Search-CsUser": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "SelfHost",
+        "TeamsPreview"
+      ]
+    },
+    "Get-CsUserList": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "SelfHost",
+        "TeamsPreview"
+      ]
+    },
+    "Grant-CsUserPolicy": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "SelfHost"
+      ]
+    },
+    "Get-CsBatchPolicyAssignmentOperation": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsBatchPolicyAssignmentOperation": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsBatchPolicyPackageAssignmentOperation": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsCustomPolicyPackage": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsCustomPolicyPackage": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Update-CsCustomPolicyPackage": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsGroupPolicyAssignment": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsGroupPolicyAssignment": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsGroupPolicyAssignment": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsGroupPolicyPackageAssignment": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsPolicyPackage": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsUserPolicyAssignment": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsUserPolicyPackage": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamTemplateList": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamTemplate": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Update-CsTeamTemplate": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamTemplate": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamTemplate": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsUserPolicyPackageRecommendation": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsUserPolicyPackage": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsShiftsConnectionConnector": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Test-CsTeamsShiftsConnectionValidate": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsShiftsConnectionInstance": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsShiftsConnectionInstance": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsShiftsConnectionInstance": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsShiftsConnectionInstance": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsShiftsConnectionWfmTeam": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsShiftsConnectionTeamMap": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsShiftsConnectionTeamMap": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsShiftsConnectionTeamMap": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsShiftsConnectionSyncResult": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsShiftsConnectionUser": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineAudioFile": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineAudioFile": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlinePowerShellEndpoint": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Move-CsInternalHelper": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsInternalOnlinePowerShellEndpoint": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Invoke-CsInternalPSTelemetry": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberCountry": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberType": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberOrder": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineTelephoneNumberOrder": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Complete-CsOnlineTelephoneNumberOrder": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Clear-CsOnlineTelephoneNumberOrder": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsPhoneNumberAssignment": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsPhoneNumberAssignment": {
+      "CmdletType": "AutoRest",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Clear-CsOnlineTelephoneNumberReservation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "ConvertTo-JsonForPSWS": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Disable-CsMeetingRoom": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Disable-CsOnlineDialInConferencingUser": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Disable-CsOnlineSipDomain": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Enable-CsMeetingRoom": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Enable-CsOnlineDialInConferencingUser": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Enable-CsOnlineSipDomain": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Export-CsAutoAttendantHolidays": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Export-CsOrganizationalAutoAttendantHolidays": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Find-CsGroup": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Find-CsOnlineApplicationInstance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsApplicationAccessPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsApplicationMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsAudioConferencingProvider": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsAutoAttendantHolidays": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsAutoAttendantStatus": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsAutoAttendantSupportedLanguage": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsAutoAttendantSupportedTimeZone": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsAutoAttendantTenantInformation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsBroadcastMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsBroadcastMeetingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsCallingLineIdentity": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsCallQueue": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsCallQueueModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsClientPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsCloudCallDataConnection": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsCloudMeetingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsDefaultCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsDialPlan": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsEffectiveTenantDialPlan": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsExternalAccessPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsExternalUserCommunicationPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsGlobalCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsGraphPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsHostedVoicemailPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsHostingProvider": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsHuntGroup": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsHuntGroupTenantInformation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsHybridMediationServer": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsHybridPSTNAppliance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsHybridPSTNSite": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsImFilterConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsInboundBlockedNumberPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsInboundExemptNumberPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsIPPhonePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsMeetingMigrationStatus": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsMmsStatus",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsMeetingRoom": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsNetworkConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOAuthConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineApplicationEndpoint": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineApplicationInstance": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOnlineApplicationInstanceV2",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineApplicationInstanceAssociation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineApplicationInstanceAssociationStatus": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineAudioConferencingRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialInConferencingBridge": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOdcBridge",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialInConferencingLanguagesSupported": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOdcLanguagesSupported",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialinConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialInConferencingServiceNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialinConferencingTenantConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialInConferencingTenantSettings": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialInConferencingUser": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOdcUser",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialInConferencingUserInfo": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialInConferencingUserState": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDialOutPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDirectoryTenant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineDirectoryTenantNumberCities": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineEnhancedEmergencyServiceDisclaimer": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOnlineEnhancedEmergencyServiceDisclaimerModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineLisCivicAddress": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOnlineLisCivicAddressModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineLisLocation": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOnlineLisLocationModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineLisPort": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOnlineLisPortModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineLisSubnet": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOnlineLisSubnetModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineLisSwitch": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOnlineLisSwitchModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineLisWirelessAccessPoint": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOnlineLisWirelessAccessPointModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineNumberPortInOrder": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineNumberPortOutOrderPin": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlinePSTNGateway": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlinePstnUsage": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineSchedule": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsOnlineScheduleModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineSipDomain": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberAvailableCount": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberInventoryAreas": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberInventoryCities": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberInventoryCountries": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberInventoryRegions": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberInventoryTypes": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineTelephoneNumberReservationsInformation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineUser": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsUser",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineVoicemailPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineVoicemailUserSettings": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineVoiceRoute": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineVoiceRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOnlineVoiceUser": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOrganizationalAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOrganizationalAutoAttendantHolidays": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOrganizationalAutoAttendantStatus": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOrganizationalAutoAttendantSupportedLanguage": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOrganizationalAutoAttendantSupportedTimeZone": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsOrganizationalAutoAttendantTenantInformation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsPresencePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsPrivacyConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsPushNotificationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsAcsFederationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsAppPermissionPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsAppPreset": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsAppSetupPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsAudioConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsCallHoldPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsCallingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsCallParkPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsChannelsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsClientConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsComplianceRecordingApplication": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsComplianceRecordingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsCortanaPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsEducationAssignmentsAppPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsEmergencyCallingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsEmergencyCallRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsFeedbackPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsGuestCallingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsGuestMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsGuestMessagingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsIPPhonePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsMeetingBroadcastConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsMeetingBroadcastPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsMeetingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsMessagingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsMigrationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsNetworkRoamingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsNotificationAndFeedsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsPinnedApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsShiftsAppPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsShiftsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsSurvivableBranchAppliance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsSurvivableBranchAppliancePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsTargetingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsTranslationRule": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsUpdateManagementPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsUpgradeConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsUpgradePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsUpgradeStatus": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsVdiPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsVerticalPackagePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsVideoInteropServicePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsWorkLoadPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenant": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Get-CsTenantObou",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantBlockedCallingNumbers": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantDialPlan": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantFederationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantHybridConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantLicensingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantMigrationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantNetworkConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantNetworkPostalCode": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantNetworkRegion": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantNetworkSite": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantNetworkSubnet": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantPublicProvider": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantTrustedIPAddress": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTenantUpdateTimeWindow": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsUCPhoneConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsUserAcp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsUserLocationStatus": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsUserPstnSettings": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsUserServicesPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsVideoInteropServiceProvider": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsVoiceNormalizationRule": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsVoiceRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsApplicationAccessPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "ApplicationAccessPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsBroadcastMeetingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "BroadcastMeetingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsCallingLineIdentity": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "CallingLineIdentity" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsClientPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "ClientPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsCloudMeetingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "CloudMeetingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "ConferencingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsDialoutPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "OnlineDialOutPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsExternalAccessPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "ExternalAccessPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsExternalUserCommunicationPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "ExternalUserCommunicationPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsGraphPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "GraphPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsHostedVoicemailPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "HostedVoicemailPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsIPPhonePolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "IPPhonePolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "MobilityPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsOnlineAudioConferencingRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "OnlineAudioConferencingRoutingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsOnlineVoicemailPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "OnlineVoicemailPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsOnlineVoiceRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "OnlineVoiceRoutingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsAppPermissionPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsAppPermissionPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsAppSetupPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsAppSetupPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsAudioConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsAudioConferencingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsCallHoldPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsCallHoldPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsCallingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsCallingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsCallParkPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsCallParkPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsChannelsPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsChannelsPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsComplianceRecordingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsComplianceRecordingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsCortanaPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsCortanaPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsEmergencyCallingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsEmergencyCallingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsEmergencyCallRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsEmergencyCallRoutingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsFeedbackPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsFeedbackPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsIPPhonePolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsIPPhonePolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsMeetingBroadcastPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsMeetingBroadcastPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsMeetingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsMeetingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsMessagingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsMessagingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsMobilityPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsShiftsPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsShiftsPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsSurvivableBranchAppliancePolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsSurvivableBranchAppliancePolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsUpdateManagementPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsUpdateManagementPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsUpgradePolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsUpgradePolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsVdiPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsVdiPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsVerticalPackagePolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsVerticalPackagePolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsVideoInteropServicePolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsVideoInteropServicePolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsWorkLoadPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TeamsWorkLoadPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTenantDialPlan": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "TenantDialPlan" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsVoiceRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Grant-CsUserPolicy",
+      "DefaultAutoRestParameters": { "PolicyType": "VoiceRoutingPolicy" },
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Import-CsAutoAttendantHolidays": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Import-CsOnlineAudioFile": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Import-CsOnlineAudioFileModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Import-CsOrganizationalAutoAttendantHolidays": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Invoke-CsUcsRollback": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Invoke-CsUserPreferredDataLocationSync": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsApplicationAccessPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsAutoAttendantCallableEntity": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsAutoAttendantCallFlow": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsAutoAttendantCallHandlingAssociation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsAutoAttendantDialScope": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsAutoAttendantMenu": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsAutoAttendantMenuOption": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsAutoAttendantPrompt": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsCallingLineIdentity": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsCallQueue": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "New-CsCallQueueModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsClientPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsCloudCallDataConnection": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsDefaultCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsEdgeAllowAllKnownDomains": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsEdgeAllowList": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsEdgeDomainPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsExternalAccessPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsExternalUserCommunicationPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsGlobalCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsHuntGroup": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsHybridPSTNSite": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsHybridTelephoneNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsInboundBlockedNumberPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsInboundExemptNumberPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsNetworkMediaBypassConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineApplicationEndpoint": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineApplicationInstance": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "New-CsOnlineApplicationInstanceV2",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineApplicationInstanceAssociation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineAudioConferencingRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineAudioFile": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineBulkAssignmentInput": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineDateTimeRange": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "New-CsOnlineDateTimeRangeModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineLisCivicAddress": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "New-CsOnlineLisCivicAddressModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineLisLocation": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "New-CsOnlineLisLocationModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineNumberPortInOrder": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlinePSTNGateway": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineSchedule": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "New-CsOnlineScheduleModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineTimeRange": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "New-CsOnlineTimeRangeModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineVoicemailPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineVoiceRoute": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOnlineVoiceRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOrganizationalAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOrganizationalAutoAttendantCallableEntity": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOrganizationalAutoAttendantCallFlow": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOrganizationalAutoAttendantCallHandlingAssociation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOrganizationalAutoAttendantDialScope": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOrganizationalAutoAttendantMenu": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOrganizationalAutoAttendantMenuOption": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsOrganizationalAutoAttendantPrompt": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsAppPermissionPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsAppPreset": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsAppSetupPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsAudioConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsCallHoldPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsCallingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsCallParkPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsChannelsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsComplianceRecordingApplication": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsComplianceRecordingPairedApplication": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsComplianceRecordingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsCortanaPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsEmergencyCallingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsEmergencyCallRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsEmergencyNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsFeedbackPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsIPPhonePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsMeetingBroadcastPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsMeetingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsMessagingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsNetworkRoamingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsPinnedApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsShiftsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsSurvivableBranchAppliance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsSurvivableBranchAppliancePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsTranslationRule": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsUpdateManagementPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsVdiPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsVerticalPackagePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsWorkLoadPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTenantCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTenantDialPlan": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTenantNetworkPostalCode": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTenantNetworkRegion": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTenantNetworkSite": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTenantNetworkSubnet": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTenantTrustedIPAddress": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTenantUpdateTimeWindow": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsVideoInteropServiceProvider": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsVoiceNormalizationRule": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Register-CsHybridPSTNAppliance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Register-CsOnlineDialInConferencingServiceNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsApplicationAccessPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsCallingLineIdentity": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsCallQueue": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Remove-CsCallQueueModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsClientPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsDefaultCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsExternalAccessPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsExternalUserCommunicationPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsGlobalCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsHuntGroup": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsHybridPSTNSite": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsHybridTelephoneNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsInboundBlockedNumberPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsInboundExemptNumberPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineApplicationEndpoint": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineApplicationInstanceAssociation": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineAudioConferencingRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineDialInConferencingTenantSettings": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineLisCivicAddress": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Remove-CsOnlineLisCivicAddressModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineLisLocation": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Remove-CsOnlineLisLocationModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineLisPort": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Remove-CsOnlineLisPortModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineLisSubnet": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Remove-CsOnlineLisSubnetModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineLisSwitch": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Remove-CsOnlineLisSwitchModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineLisWirelessAccessPoint": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Remove-CsOnlineLisWirelessAccessPointModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineNumberPortInOrder": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlinePSTNGateway": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineSchedule": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Remove-CsOnlineScheduleModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineTelephoneNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineVoicemailPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineVoiceRoute": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOnlineVoiceRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsOrganizationalAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsAppPermissionPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsAppPreset": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsAppSetupPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsAudioConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsCallHoldPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsCallingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsCallParkPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsChannelsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsComplianceRecordingApplication": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsComplianceRecordingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsCortanaPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsEmergencyCallingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsEmergencyCallRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsFeedbackPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsIPPhonePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsMeetingBroadcastPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsMeetingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsMessagingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsNetworkRoamingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsNotificationAndFeedsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsPinnedApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsShiftsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsSurvivableBranchAppliance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsSurvivableBranchAppliancePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsTargetingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsTranslationRule": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsUpdateManagementPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsVdiPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsVerticalPackagePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsWorkLoadPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTenantCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTenantDialPlan": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTenantNetworkConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTenantNetworkPostalCode": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTenantNetworkRegion": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTenantNetworkSite": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTenantNetworkSubnet": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTenantTrustedIPAddress": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTenantUpdateTimeWindow": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsUserAcp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsVideoInteropServiceProvider": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsVoiceNormalizationRule": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Search-CsOnlineTelephoneNumberInventory": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Select-CsOnlineTelephoneNumberInventory": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsApplicationAccessPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsApplicationMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsBroadcastMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsCallingLineIdentity": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsCallQueue": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsCallQueueModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsCceApplianceConfigurationReplicationStatus": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsCceApplianceDeploymentStatus": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsCceApplianceStatus": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsClientPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsDefaultCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsExternalAccessPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsExternalUserCommunicationPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsGlobalCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsHuntGroup": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsHybridMediationServer": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsHybridPSTNAppliance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsHybridPSTNSite": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsInboundBlockedNumberPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsInboundExemptNumberPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsIPPhonePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsMeetingRoom": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsNetworkConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOAuthConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineApplicationEndpoint": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineApplicationInstance": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineApplicationInstanceV2",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineAudioConferencingRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineDialInConferencingBridge": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOdcBridgeModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineDialInConferencingServiceNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineDialInConferencingTenantSettings": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineDialInConferencingUser": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineDialInConferencingUserDefaultNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineDirectoryUser": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineEnhancedEmergencyServiceDisclaimer": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineEnhancedEmergencyServiceDisclaimerModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineLisCivicAddress": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineLisCivicAddressModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineLisLocation": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineLisLocationModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineLisPort": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineLisPortModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineLisSubnet": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineLisSubnetModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineLisSwitch": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineLisSwitchModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineLisWirelessAccessPoint": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineLisWirelessAccessPointModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineNumberPortInOrder": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineNumberPortOutOrderPin": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlinePSTNGateway": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlinePstnUsage": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineSchedule": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineScheduleModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineVoiceApplicationInstance": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineVoiceApplicationInstanceV2",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineVoicemailPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineVoicemailUserSettings": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineVoiceRoute": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineVoiceRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineVoiceUser": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsOnlineVoiceUserV2",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOnlineVoiceUserBulk": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsOrganizationalAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsPrivacyConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsPushNotificationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsAcsFederationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsAppPermissionPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsAppPreset": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsAppSetupPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsAudioConferencingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsCallHoldPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsCallingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsCallParkPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsChannelsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsClientConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsComplianceRecordingApplication": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsComplianceRecordingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsCortanaPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsEducationAssignmentsAppPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsEmergencyCallingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsEmergencyCallRoutingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsFeedbackPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsGuestCallingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsGuestMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsGuestMessagingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsIPPhonePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsMeetingBroadcastConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsMeetingBroadcastPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsMeetingConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsMeetingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsMessagingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsMigrationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsMobilityPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsNetworkRoamingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsNotificationAndFeedsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsPinnedApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsShiftsAppPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsShiftsPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsSurvivableBranchAppliance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsSurvivableBranchAppliancePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsTargetingPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsTranslationRule": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsUpdateManagementPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsUpgradeConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsUpgradeStatus": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsVdiPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsVerticalPackagePolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsWorkLoadPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantBlockedCallingNumbers": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantCatalogApp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantDialPlan": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantFederationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantHybridConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantMigrationConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantNetworkConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantNetworkPostalCode": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantNetworkRegion": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantNetworkSite": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantNetworkSubnet": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantPublicProvider": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantTrustedIPAddress": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTenantUpdateTimeWindow": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsUCPhoneConfiguration": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsUser": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Set-CsUserModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsUserAcp": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsUserPstnSettings": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsUserServicesPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsVideoInteropServiceProvider": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsVoiceNormalizationRule": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Start-CsExMeetingMigration": {
+      "CmdletType": "Remoting",
+      "AutoRestModuleName": "Microsoft.Teams.ConfigAPI.Cmdlets",
+      "ModernCmdlet": "Start-CsMeetingMigrationModern",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Switch-CsOnlineApplicationEndpoint": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Sync-CsOnlineApplicationInstance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Test-CsEffectiveTenantDialPlan": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Test-CsInboundBlockedNumberPattern": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Test-CsOnlineCarrierPortabilityIn": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Test-CsOnlineLisCivicAddress": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Test-CsOnlinePortabilityIn": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Test-CsVoiceNormalizationRule": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Unregister-CsHybridPSTNAppliance": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Unregister-CsOnlineDialInConferencingServiceNumber": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Update-CsAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Update-CsOrganizationalAutoAttendant": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Update-CsTenantMeetingUrl": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsUnassignedNumberTreatment": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsUnassignedNumberTreatment": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsUnassignedNumberTreatment": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsUnassignedNumberTreatment": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Get-CsTeamsEnhancedEncryptionPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Grant-CsTeamsEnhancedEncryptionPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Set-CsTeamsEnhancedEncryptionPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "Remove-CsTeamsEnhancedEncryptionPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    },
+    "New-CsTeamsEnhancedEncryptionPolicy": {
+      "CmdletType": "Remoting",
+      "ExportsTo": [
+        "TeamsGA",
+        "TeamsPreview",
+        "SelfHost"
+      ]
+    }
+  }
+}

@@ -13,9 +13,8 @@ $Resp = ConvertTo-Json @()
 # Get query parameters to search user profile info - REQUIRED parameter
 $SearchString = $Request.Query.SearchString
 If ([string]::IsNullOrWhiteSpace($SearchString)){
-    $Resp = @{ "Error" = "Missing query parameter - Please provide UPN via query string ?SearchString=UPN" }
+    $Resp = @{ "Error" = "Missing query parameter - Please provide UPN via query string ?objectId=" }
     $StatusCode =  [HttpStatusCode]::BadRequest
-
 }
 
 # Authenticate to AzureAD and Microsoft Teams using service account
@@ -36,14 +35,14 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        $userInfos = Get-CsOnlineUser $SearchString | Select-Object -Property objectID,DisplayName,UserPrincipalName,UsageLocation,LineURI,EnterpriseVoiceEnabled,HostedVoiceMail,@{Name='VoicePolicy';Expression={If($_.VoicePolicy -eq "BusinessVoice"){[string]$_.VoicePolicy + " | Calling Plans"} Else {[string]$_.VoicePolicy + " | on-prem routing"}}},TeamsCallingPolicy
-        $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectId | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
+        $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property objectID,DisplayName,UserPrincipalName,UsageLocation,LineURI,EnterpriseVoiceEnabled,HostedVoiceMail,@{Name='VoicePolicy';Expression={If($_.VoicePolicy -eq "BusinessVoice"){[string]$_.VoicePolicy + " | Calling Plans"} Else {[string]$_.VoicePolicy + " | on-prem routing"}}},TeamsCallingPolicy
+        $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectID | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
         if (-not([string]::IsNullOrWhiteSpace($CallingPlan))) {
             $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $CallingPlan.SkuPartNumber 
         } else {
             $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $null 
         }
-        $Resp = $yserInfos | ConvertTo-Json
+        $Resp = $userInfos | ConvertTo-Json
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
