@@ -7,11 +7,11 @@ Function Get-jsonSchema (){
 
 Switch ($schemaName) {
 
-# JSON schema definition for Set-AssignPhoneNumber     
-'Set-AssignPhoneNumber' { Return @'
+# JSON schema definition for Set-CsOnlineVoiceUser     
+'Set-CsOnlineVoiceUser' { Return @'
     {
         "type": "object",
-        "title": "Set-AssignPhoneNumber API JSON body definition",  
+        "title": "Set-CsOnlineVoiceUser API JSON body definition",  
         "required": [
             "Identity",
             "TelephoneNumber"
@@ -41,6 +41,36 @@ Switch ($schemaName) {
                     "8fe2cb97-ffb6-403c-9233-73e258029502"
                 ],
                 "pattern": "^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$"
+            }
+        }
+    }
+'@ }
+
+# JSON schema definition for Grant-CsTeamsCallingPolicy     
+'Grant-CsTeamsCallingPolicy' { Return @'
+    {
+        "type": "object",
+        "title": "Grant-CsTeamsCallingPolicy API JSON body definition",  
+        "required": [
+            "Identity",
+            "PolicyName"
+        ],
+        "properties": {
+            "Identity": {
+                "type": "string",
+                "title": "Specifies the identity of the target user",
+                "examples": [
+                    "jphillips@contoso.com",
+                    "sip:jphillips@contoso.com",
+                    "98403f08-577c-46dd-851a-f0460a13b03d"
+                ]
+            },  
+            "PolicyName": {
+                "type": "string",
+                "title": "The name of the policy being assigned. To remove an existing user level policy assignment, specify PolicyName as null.",
+                "examples": [
+                    "CallingPlan"
+                ]
             }
         }
     }

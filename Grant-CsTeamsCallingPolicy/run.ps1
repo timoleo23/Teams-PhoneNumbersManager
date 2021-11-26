@@ -11,7 +11,7 @@ $StatusCode = [HttpStatusCode]::OK
 $Resp = ConvertTo-Json @()
 
 # Validate the request JSON body against the schema_validator
-$Schema = Get-jsonSchema ('Set-AssignPhoneNumber')
+$Schema = Get-jsonSchema ('Grant-CsTeamsCallingPolicy')
 
 If (-Not $Request.Body) {
     $Resp = @{ "Error" = "Missing JSON body in the POST request"}
@@ -31,8 +31,7 @@ Else {
         # Set the function variables
         Write-Host 'Inputs validated'
         $Id = $Request.Body.Identity
-        If($Request.Body.TelephoneNumber -eq "+null") { $telNumber = $null } Else { $telNumber = $Request.Body.TelephoneNumber }        
-        $LocId = $Request.Body.LocationID
+        $PolicyName = $Request.Body.PolicyName   
     }    
 }
 
@@ -53,14 +52,7 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        If (-Not([string]::IsNullOrWhiteSpace($LocId))){
-            #$Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -LocationID $LocId -ErrorAction:Stop
-            $Resp =  @{ "Result" = "Number " + $telNumber + " added to User " + $Id + " with location " + $LocId } | ConvertTo-Json
-        }
-        Else {
-            #$Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -ErrorAction:Stop
-            $Resp = @{ "Result" = "Number " + $telNumber + " added to User " + $Id + " (no location)" } | ConvertTo-Json
-        }    
+        $Resp = Grant-CsTeamsCallingPolicy -Identity $Id -PolicyName $PolicyName -ErrorAction:Stop
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
