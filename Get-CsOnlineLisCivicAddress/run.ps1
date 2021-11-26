@@ -10,14 +10,7 @@ Write-Host "PowerShell HTTP trigger function processed a request."
 $StatusCode = [HttpStatusCode]::OK
 $Resp = ConvertTo-Json @()
 
-# Get query parameters to search non assigned number based on location - OPTIONAL parameter
-$Location = $Request.Query.Location
-If ([string]::IsNullOrWhiteSpace($SearchString)){
-#    $Resp = @{ "Error" = "Missing query parameter - Please provide UPN via query string ?objectId=" }
-#    $StatusCode =  [HttpStatusCode]::BadRequest
-}
-
-# Authenticate to AzureAD and Microsoft Teams using service account
+# Authenticate to AzureAD using service account
 $Account = $env:AdminAccountLogin 
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
@@ -34,7 +27,12 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        $Resp = Get-CsOnlineTelephoneNumber -IsNotAssigned -InventoryType Subscriber -ErrorAction:Stop | Select-Object -Property Id,@{Name='Number';Expression={"+" + [string]$_.Id}},CityCode,@{Name='Country';Expression={If((-not([string]::IsNullOrWhiteSpace($_.CityCode)))){($_.CityCode -Split "-")[1]}Else{$null}}},ActivationState | ConvertTo-Json
+        If (-not $Request.Query.Filter) {
+            $Resp = Get-CsTeamsCallingPolicy | select-object -Property Identity,@{Name='DisplayName';Expression={$_.Identity.Replace('Tag:','')}} | ConvertTo-Json
+        }
+        Else {
+            $Resp = Get-CsTeamsCallingPolicy -Filter $Request.Query.Filter | select-object -Property Identity,@{Name='DisplayName';Expression={$_.Identity.Replace('Tag:','')}} | ConvertTo-Json
+        }
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
