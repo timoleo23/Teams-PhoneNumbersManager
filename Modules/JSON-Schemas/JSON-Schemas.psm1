@@ -52,8 +52,7 @@ Switch ($schemaName) {
         "type": "object",
         "title": "Grant-CsTeamsCallingPolicy API JSON body definition",  
         "required": [
-            "Identity",
-            "PolicyName"
+            "Identity"
         ],
         "properties": {
             "Identity": {
