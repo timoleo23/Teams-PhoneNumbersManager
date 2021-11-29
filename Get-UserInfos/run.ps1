@@ -24,7 +24,7 @@ $Credential = New-Object -TypeName System.Management.Automation.PSCredential -Ar
 
 Try {
     Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
-    Connect-AzureAD -Credential $Credential -ErrorAction:Stop
+#    Connect-AzureAD -Credential $Credential -ErrorAction:Stop
 }
 Catch {
     $Resp = @{ "Error" = $_.Exception.Message }
@@ -36,12 +36,12 @@ Catch {
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property objectID,DisplayName,UserPrincipalName,UsageLocation,LineURI,EnterpriseVoiceEnabled,HostedVoiceMail,VoicePolicy,TeamsCallingPolicy
-        $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectID | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
-        if (-not([string]::IsNullOrWhiteSpace($CallingPlan))) {
-            $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $CallingPlan.SkuPartNumber 
-        } else {
-            $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $null 
-        }
+        # $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectID | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
+        # if (-not([string]::IsNullOrWhiteSpace($CallingPlan))) {
+        #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $CallingPlan.SkuPartNumber 
+        # } else {
+        #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $null 
+        # }
         $Resp = $userInfos | ConvertTo-Json
     }
     Catch {
@@ -58,7 +58,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
     Body = $Resp
 })
 
-Disconnect-AzureAD
+#Disconnect-AzureAD
 Disconnect-MicrosoftTeams
 
 # Trap all other exceptions that may occur at runtime and EXIT Azure Function

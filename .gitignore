@@ -4,6 +4,7 @@ obj
 appsettings.json
 local.settings.json
 *test*
+Modules\AzureAD
 
 # Azurite artifacts
 __blobstorage__
