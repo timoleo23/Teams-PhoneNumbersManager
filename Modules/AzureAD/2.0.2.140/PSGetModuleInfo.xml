@@ -41,15 +41,8 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">Function</S>
-            <Obj N="Value" RefId="3">
-              <TNRef RefId="1" />
-              <LST />
-            </Obj>
-          </En>
-          <En>
             <S N="Key">Command</S>
-            <Obj N="Value" RefId="4">
+            <Obj N="Value" RefId="3">
               <TNRef RefId="1" />
               <LST>
                 <S>Add-AzureADApplicationOwner</S>
@@ -286,12 +279,23 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="3" />
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
           </En>
           <En>
             <S N="Key">Workflow</S>
-            <Ref N="Value" RefId="3" />
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="4" />
           </En>
           <En>
             <S N="Key">Cmdlet</S>
@@ -531,10 +535,6 @@
               </LST>
             </Obj>
           </En>
-          <En>
-            <S N="Key">RoleCapability</S>
-            <Ref N="Value" RefId="3" />
-          </En>
         </DCT>
       </Obj>
       <Nil N="PowerShellGetFormatVersion" />
@@ -557,15 +557,15 @@
           <S N="requireLicenseAcceptance">False</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">1894693</S>
-          <S N="downloadCount">13825961</S>
+          <S N="versionDownloadCount">1938324</S>
+          <S N="downloadCount">13870955</S>
           <S N="packageSize">8042219</S>
           <S N="published">19/08/2021 21:05:09 +02:00</S>
           <S N="created">19/08/2021 21:05:09 +02:00</S>
-          <S N="lastUpdated">26/11/2021 10:19:14 +01:00</S>
+          <S N="lastUpdated">29/11/2021 13:50:28 +01:00</S>
           <S N="tags">Azure ActiveDirectory AzureAD AD AzureGraph PSModule</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2021-11-26T10:19:14Z</S>
+          <S N="updated">2021-11-29T13:50:28Z</S>
           <S N="NormalizedVersion">2.0.2.140</S>
           <S N="Authors">Microsoft Corporation</S>
           <S N="IsPrerelease">false</S>
@@ -580,7 +580,7 @@
           <S N="CompanyName">Microsoft Corporation</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\GitHub-local\Azure-ARM-templates\Teams-PhoneNumbersManager\Packages\AzureAD\2.0.2.140</S>
+      <S N="InstalledLocation">C:\GitHub-local\Azure-ARM-templates\Teams-PhoneNumbersManager\Modules\AzureAD\2.0.2.140</S>
     </MS>
   </Obj>
 </Objs>
