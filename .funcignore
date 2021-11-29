@@ -2,4 +2,3 @@
 .vscode
 local.settings.json
 *test*
-Modules\AzureAD
