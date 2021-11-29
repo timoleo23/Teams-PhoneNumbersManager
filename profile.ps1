@@ -21,5 +21,5 @@
 
 # You can also define functions or aliases that can be referenced in any of your PowerShell functions.
 
-#Import-Module ".\Modules\AzureAD\2.0.2.140\AzureAD.psd1" -UseWindowsPowerShell
+Import-Module ".\Modules\AzureAD\2.0.2.140\AzureAD.psd1" -UseWindowsPowerShell
 Import-Module ".\Modules\MicrosoftTeams\2.6.0\MicrosoftTeams.psd1"
