@@ -23,5 +23,5 @@
 #$AzureADModulePath=".\Modules\AzureAD\2.0.2.140\AzureAD.psd1"
 Import-Module AzureAD -UseWindowsPowerShell
 
-SkypeOnlineModulePath=".\Modules\MicrosoftTeams\2.6.0\MicrosoftTeams.psd1"
+$SkypeOnlineModulePath=".\Modules\MicrosoftTeams\2.6.0\MicrosoftTeams.psd1"
 Import-Module $SkypeOnlineModulePath -UseWindowsPowerShell
