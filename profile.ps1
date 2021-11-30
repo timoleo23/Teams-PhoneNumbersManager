@@ -21,7 +21,7 @@
 
 # You can also define functions or aliases that can be referenced in any of your PowerShell functions.
 #$AzureADModulePath=".\Modules\AzureAD\2.0.2.140\AzureAD.psd1"
-#Import-Module $AzureADModulePath -UseWindowsPowerShell
+Import-Module AzureAD -UseWindowsPowerShell
 
-#$SkypeOnlineModulePath=".\Modules\MicrosoftTeams\2.6.0\MicrosoftTeams.psd1"
-#Import-Module $SkypeOnlineModulePath
+SkypeOnlineModulePath=".\Modules\MicrosoftTeams\2.6.0\MicrosoftTeams.psd1"
+Import-Module $SkypeOnlineModulePath -UseWindowsPowerShell

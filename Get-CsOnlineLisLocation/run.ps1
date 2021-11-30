@@ -27,7 +27,7 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        $Resp = Get-CsOnlineLisLocation | Select-Object DefaultLocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
+        $Resp = Get-CsOnlineLisLocation | Select-Object LocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
