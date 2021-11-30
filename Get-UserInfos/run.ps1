@@ -35,12 +35,24 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
+        # Get general infos
         $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property objectID,DisplayName,UserPrincipalName,UsageLocation,LineURI,EnterpriseVoiceEnabled,HostedVoiceMail,VoicePolicy,TeamsCallingPolicy
+        Write-Host "User profile info collected."
+        # Get assigned licenced for PSTN calling
         $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectID | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
+        Write-Host "User calling plan sku collected."
         if (-not([string]::IsNullOrWhiteSpace($CallingPlan))) {
             $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $CallingPlan.SkuPartNumber 
         } else {
             $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $null 
+        }
+        # Get user defined emergency location
+        $EmergencyLocation = Get-CsOnlineVoiceUser -Identity $SearchString -ExpandLocation | Select-Object Location
+        Write-Host "User emergency location collected."
+        if (-not([string]::IsNullOrWhiteSpace($EmergencyLocation))) {
+            $userInfos | Add-Member -MemberType NoteProperty -Name 'Location Id' -Value $EmergencyLocation.location.locationId.Guid 
+        } else {
+            $userInfos | Add-Member -MemberType NoteProperty -Name 'Location Id' -Value $null 
         }
         $Resp = $userInfos | ConvertTo-Json
     }

@@ -54,12 +54,12 @@ Catch {
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         If (-Not([string]::IsNullOrWhiteSpace($LocId))){
-            #$Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -LocationID $LocId -ErrorAction:Stop
-            $Resp =  @{ "Result" = "Number " + $telNumber + " added to User " + $Id + " with location " + $LocId } | ConvertTo-Json
+            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -LocationID $LocId -ErrorAction:Stop
+            #$Resp =  @{ "Result" = "Number " + $telNumber + " added to User " + $Id + " with location " + $LocId } | ConvertTo-Json
         }
         Else {
-            #$Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -ErrorAction:Stop
-            $Resp = @{ "Result" = "Number " + $telNumber + " added to User " + $Id + " (no location)" } | ConvertTo-Json
+            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -ErrorAction:Stop
+            #$Resp = @{ "Result" = "Number " + $telNumber + " added to User " + $Id + " (no location)" } | ConvertTo-Json
         }    
     }
     Catch {
