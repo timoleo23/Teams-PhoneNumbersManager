@@ -10,6 +10,9 @@ Write-Host "PowerShell HTTP trigger function processed a request."
 $StatusCode = [HttpStatusCode]::OK
 $Resp = ConvertTo-Json @()
 
+# Get query parameters to search non assigned number based on location - OPTIONAL parameter
+$Location = $Request.Query.Location
+
 # Authenticate to AzureAD using service account
 $Account = $env:AdminAccountLogin 
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
@@ -27,7 +30,12 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        $Resp = Get-CsOnlineLisLocation | Select-Object LocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
+        If ([string]::IsNullOrWhiteSpace($Location)){
+            $Resp = Get-CsOnlineLisLocation | Select-Object LocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
+        }
+        Else {
+            $Resp = Get-CsOnlineLisLocation -CountryOrRegion $Location | Select-Object LocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
+        }
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }

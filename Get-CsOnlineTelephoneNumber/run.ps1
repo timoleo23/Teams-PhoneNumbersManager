@@ -12,10 +12,6 @@ $Resp = ConvertTo-Json @()
 
 # Get query parameters to search non assigned number based on location - OPTIONAL parameter
 $Location = $Request.Query.Location
-If ([string]::IsNullOrWhiteSpace($SearchString)){
-#    $Resp = @{ "Error" = "Missing query parameter - Please provide UPN via query string ?objectId=" }
-#    $StatusCode =  [HttpStatusCode]::BadRequest
-}
 
 # Authenticate to AzureAD and Microsoft Teams using service account
 $Account = $env:AdminAccountLogin 
@@ -34,7 +30,13 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        $Resp = Get-CsOnlineTelephoneNumber -IsNotAssigned -InventoryType Subscriber -ErrorAction:Stop | Select-Object -Property Id,@{Name='Number';Expression={"+" + [string]$_.Id}},CityCode,@{Name='Country';Expression={If((-not([string]::IsNullOrWhiteSpace($_.CityCode)))){($_.CityCode -Split "-")[1]}Else{$null}}},ActivationState | ConvertTo-Json
+        $Resp = Get-CsOnlineTelephoneNumber -IsNotAssigned -InventoryType Subscriber -ErrorAction:Stop | Select-Object -Property Id,@{Name='Number';Expression={"+" + [string]$_.Id}},CityCode,@{Name='Country';Expression={If((-not([string]::IsNullOrWhiteSpace($_.CityCode)))){($_.CityCode -Split "-")[1]}Else{$null}}},ActivationState
+        If ([string]::IsNullOrWhiteSpace($Location)){
+            $Resp = $Resp |  ConvertTo-Json
+        }
+        Else {
+            $Resp = $Resp | Where-Object {$_.Country -eq $Location} | ConvertTo-Json
+        }
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
@@ -42,6 +44,7 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
         Write-Error $_
     }
 }
+
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{

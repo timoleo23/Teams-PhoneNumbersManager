@@ -13,6 +13,8 @@ $Resp = ConvertTo-Json @()
 # Validate the request JSON body against the schema_validator
 $Schema = Get-jsonSchema ('Grant-CsTeamsCallingPolicy')
 
+$Request.Body
+
 If (-Not $Request.Body) {
     $Resp = @{ "Error" = "Missing JSON body in the POST request"}
     $StatusCode =  [HttpStatusCode]::BadRequest 

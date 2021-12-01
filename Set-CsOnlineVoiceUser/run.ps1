@@ -32,7 +32,7 @@ Else {
         Write-Host 'Inputs validated'
         $Id = $Request.Body.Identity
         $telNumber = $Request.Body.TelephoneNumber
-        $LocId = $Request.Body.LocationID
+        # $LocId = $Request.Body.LocationID
     }    
 }
 
@@ -53,14 +53,12 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        If (-Not([string]::IsNullOrWhiteSpace($LocId))){
-            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -LocationID $LocId -ErrorAction:Stop
-            #$Resp =  @{ "Result" = "Number " + $telNumber + " added to User " + $Id + " with location " + $LocId } | ConvertTo-Json
-        }
-        Else {
+        # If (-Not([string]::IsNullOrWhiteSpace($LocId))){
+        #     $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -LocationID $LocId -ErrorAction:Stop
+        # }
+        # Else {
             $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -ErrorAction:Stop
-            #$Resp = @{ "Result" = "Number " + $telNumber + " added to User " + $Id + " (no location)" } | ConvertTo-Json
-        }    
+        # }    
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }

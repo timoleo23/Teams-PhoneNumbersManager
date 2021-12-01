@@ -12,5 +12,5 @@ Write-Host "PowerShell HTTP trigger function processed a request."
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
     StatusCode = [HttpStatusCode]::OK
     ContentType = 'application/json'
-    Body = $(Get-Module -ListAvailable | Select-Object Name, Path)
+    Body = Get-Module -ListAvailable | Select-Object Name
 })

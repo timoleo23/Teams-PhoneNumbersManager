@@ -13,8 +13,7 @@ Switch ($schemaName) {
         "type": "object",
         "title": "Set-CsOnlineVoiceUser API JSON body definition",  
         "required": [
-            "Identity",
-            "TelephoneNumber"
+            "Identity"
         ],
         "properties": {
             "Identity": {
