@@ -1,4 +1,6 @@
 .git*
 .vscode
-local.settings.json
+*.md
 *test*
+Media
+local.settings.json

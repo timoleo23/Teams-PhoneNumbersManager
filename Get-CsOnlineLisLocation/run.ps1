@@ -18,13 +18,15 @@ $Account = $env:AdminAccountLogin
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
-Try {
-    Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
-}
-Catch {
-    $Resp = @{ "Error" = $_.Exception.Message }
-    $StatusCode =  [HttpStatusCode]::BadGateway
-    Write-Error $_
+If ($StatusCode -eq [HttpStatusCode]::OK) {
+    Try {
+        Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
+    }
+    Catch {
+        $Resp = @{ "Error" = $_.Exception.Message }
+        $StatusCode =  [HttpStatusCode]::BadGateway
+        Write-Error $_
+    }
 }
 
 # Get Azure AD Groups

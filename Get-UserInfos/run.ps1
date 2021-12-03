@@ -22,23 +22,25 @@ $Account = $env:AdminAccountLogin
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
-Try {
-    Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
-    Connect-AzureAD -Credential $Credential -ErrorAction:Stop
-}
-Catch {
-    $Resp = @{ "Error" = $_.Exception.Message }
-    $StatusCode =  [HttpStatusCode]::BadGateway
-    Write-Error $_
+If ($StatusCode -eq [HttpStatusCode]::OK) {
+    Try {
+        Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
+        Connect-AzureAD -Credential $Credential -ErrorAction:Stop
+    }
+    Catch {
+        $Resp = @{ "Error" = $_.Exception.Message }
+        $StatusCode =  [HttpStatusCode]::BadGateway
+        Write-Error $_
+    }
 }
 
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        # Get general infos
-        $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property objectID,DisplayName,UserPrincipalName,UsageLocation,LineURI,EnterpriseVoiceEnabled,HostedVoiceMail,VoicePolicy,TeamsCallingPolicy
+        # Get user general infos from Teams Communication Services
+        $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property objectID,DisplayName,UserPrincipalName,UsageLocation,LineURI,EnterpriseVoiceEnabled,HostedVoiceMail,VoicePolicy,TeamsCallingPolicy,OnlineDialOutPolicy
         Write-Host "User profile info collected."
-        # Get assigned licenced for PSTN calling
+        # Get user assigned licenced for PSTN calling from AzureAD
         $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectID | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
         Write-Host "User calling plan sku collected."
         if (-not([string]::IsNullOrWhiteSpace($CallingPlan))) {
@@ -46,14 +48,17 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
         } else {
             $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $null 
         }
-        # Get user defined emergency location
-        $EmergencyLocation = Get-CsOnlineVoiceUser -Identity $SearchString -ExpandLocation | Select-Object Location
-        Write-Host "User emergency location collected."
-        if (-not([string]::IsNullOrWhiteSpace($EmergencyLocation))) {
-            $userInfos | Add-Member -MemberType NoteProperty -Name 'Location Id' -Value $EmergencyLocation.location.locationId.Guid 
-        } else {
-            $userInfos | Add-Member -MemberType NoteProperty -Name 'Location Id' -Value $null 
-        }
+        ##################################################################################################################################
+        # Get user defined Emergency Location - Code commented for futur use (manage users Emergency Location)
+        ##################################################################################################################################
+        # $EmergencyLocation = Get-CsOnlineVoiceUser -Identity $SearchString -ExpandLocation | Select-Object Location
+        # Write-Host "User emergency location collected."
+        # if (-not([string]::IsNullOrWhiteSpace($EmergencyLocation))) {
+        #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Location Id' -Value $EmergencyLocation.location.locationId.Guid 
+        # } else {
+        #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Location Id' -Value $null 
+        # }
+        ##################################################################################################################################
         $Resp = $userInfos | ConvertTo-Json
     }
     Catch {

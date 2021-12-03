@@ -3,9 +3,12 @@ bin
 obj
 appsettings.json
 local.settings.json
-*test*
 
 # Azurite artifacts
 __blobstorage__
 __queuestorage__
 __azurite_db*__.json
+
+# Development artivfacts
+*test*
+.vscode
