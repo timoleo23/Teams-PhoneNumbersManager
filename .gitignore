@@ -13,3 +13,7 @@ __azurite_db*__.json
 *test*
 .vscode
 parameters-local.json
+
+# PowerShell Gallery Modules
+Modules\AzureAD
+Modules\MicrosoftTeams
