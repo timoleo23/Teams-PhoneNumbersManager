@@ -1,7 +1,13 @@
 .git*
 .vscode
 *.md
-*test*
-Media
 local.settings.json
+
+test
+Media
 Deployment
+PowerApps
+
+# Excluded (for future use)
+Get-CsOnlineLisLocation
+Get-CsOnlineTelNumLocDetails

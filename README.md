@@ -1,5 +1,5 @@
 # Microsoft Teams Phone System admin app
-A delegated Admin portals for Calling Plans (PSTN) phone numbers management
+A delegated Admin application for Calling Plans (PSTN) phone numbers management
 
 ## What's in it for you
 

@@ -3,16 +3,19 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "resourcePrefix": {
-            "value": "secretMan"
+            "value": "Teams"
         },
+        "serviceAccountUPN": {
+            "value": "service@tenant.onmicrosoft.com"
+        },
+        "serviceAccountSecret": {
+            "value": "XXXXXXXXXX"
+        },                
         "gitRepoUrl" : {
-            "value": "https://github.com/timoleo23/secretManager.git"
+            "value": "https://github.com/timoleo23/Teams-PhoneNumbersManager.git"
         },
         "gitBranch": {
             "value": "main"
-        },
-        "teamsChannelURL":{
-            "value": "https://teams.microsoft.com/l/channel/19%3a45862981bfd74f368b558fca35ba7207%40thread.tacv2/Secret-Manager?groupId=115d6bf9-1d80-4be9-ad36-f870e5076788&tenantId=e517378c-47aa-4aa1-b4c4-9a947b95392c"
         }
     }
 }

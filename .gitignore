@@ -12,3 +12,4 @@ __azurite_db*__.json
 # Development artivfacts
 *test*
 .vscode
+parameters-local.json
