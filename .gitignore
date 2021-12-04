@@ -15,5 +15,5 @@ __azurite_db*__.json
 parameters-local.json
 
 # PowerShell Gallery Modules
-Modules\AzureAD
-Modules\MicrosoftTeams
+Modules/AzureAD
+Modules/MicrosoftTeams

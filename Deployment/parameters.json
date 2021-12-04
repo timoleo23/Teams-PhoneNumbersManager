@@ -11,11 +11,8 @@
         "serviceAccountSecret": {
             "value": "XXXXXXXXXX"
         },                
-        "gitRepoUrl" : {
-            "value": "https://github.com/timoleo23/Teams-PhoneNumbersManager.git"
-        },
-        "gitBranch": {
-            "value": "main"
+        "packageURI" : {
+            "value": "https://github.com/timoleo23/Teams-PhoneNumbersManager/blob/main/Packages/Azure/artifact.zip?raw=true"
         }
     }
 }

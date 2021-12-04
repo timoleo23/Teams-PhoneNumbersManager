@@ -17,24 +17,17 @@
             }
         },    
         "serviceAccountSecret": {
-            "type": "string",
+            "type": "securestring",
             "metadata": {
                 "description": "Password of your Microsoft Teams Service Account"
             }
         },             
-        "gitRepoUrl": {
+        "packageURI": {
             "type": "string",
             "metadata": {
-                "description": "The URL to the GitHub repository to deploy."
+                "description": "Location of the ZIP files with the Azure Functions definition"
             },
-            "defaultValue": "https://github.com/timoleo23/Teams-PhoneNumbersManager.git"
-        },
-        "gitBranch": {
-            "type": "string",
-            "metadata": {
-                "description": "The branch of the GitHub repository to deploy."
-            },
-            "defaultValue": "main"
+            "defaultValue": "https://github.com/timoleo23/Teams-PhoneNumbersManager/blob/main/Packages/Azure/artifact.zip?raw=true"
         }
     },
     "variables": {
@@ -137,7 +130,7 @@
                         },
                         {
                             "name": "WEBSITE_RUN_FROM_PACKAGE",
-                            "value": "0",
+                            "value": "1",
                             "slotSetting": false
                         }
                     ],
@@ -149,24 +142,19 @@
                     "ftpsState": "Disabled",
                     "healthCheckPath": "/health-check"
                 }
-            },
-            "resources": [
-                {
-                    "apiVersion": "2021-02-01",
-                    "name": "web",
-                    "type": "sourcecontrols",
-                    "condition": "[not(empty(parameters('gitRepoUrl')))]",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
-                    ],
-                    "properties": {
-                        "RepoUrl": "[parameters('gitRepoUrl')]",
-                        "branch": "[parameters('gitBranch')]",
-                        "IsManualIntegration": true
-                    }
-                }
-            ]            
+            }           
         },
+        {
+            "name": "[concat(variables('functionAppName'), '/ZipDeploy')]",
+            "type": "Microsoft.Web/sites/extensions",
+            "apiVersion": "2021-02-01",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
+            ],
+            "properties": {
+                "packageUri": "[parameters('packageURI')]"
+            }
+        },        
         {
             "name": "[variables('keyVaultName')]",
             "type": "Microsoft.KeyVault/vaults",
