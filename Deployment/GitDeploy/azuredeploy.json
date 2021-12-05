@@ -98,13 +98,11 @@
                     "appSettings": [
                         {
                             "name": "AdminAccountLogin",
-                            "value": "[concat('@Microsoft.KeyVault(VaultName=', variables('keyVaultName') ,';SecretName=Teams-service-account-name)')]",
-                            "slotSetting": true
+                            "value": "[concat('@Microsoft.KeyVault(VaultName=', variables('keyVaultName') ,';SecretName=Teams-service-account-name)')]"
                         },
                         {
                             "name": "AdminAccountPassword",
-                            "value": "[concat('@Microsoft.KeyVault(VaultName=', variables('keyVaultName') ,';SecretName=Teams-service-account-secret)')]",
-                            "slotSetting": true
+                            "value": "[concat('@Microsoft.KeyVault(VaultName=', variables('keyVaultName') ,';SecretName=Teams-service-account-secret)')]"
                         },
                         {
                             "name": "AzureWebJobsStorage",
@@ -112,34 +110,32 @@
                         },
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",
-                            "value": "~4",
-                            "slotSetting": false
+                            "value": "~4"
                         },
                         {
                             "name": "FUNCTIONS_WORKER_PROCESS_COUNT",
-                            "value": "4",
-                            "slotSetting": false
+                            "value": "4"
                         },
                         {
                             "name": "FUNCTIONS_WORKER_RUNTIME",
-                            "value": "powershell",
-                            "slotSetting": false
+                            "value": "powershell"
                         },
                         {
                             "name": "FUNCTIONS_WORKER_RUNTIME_VERSION",
-                            "value": "~7",
-                            "slotSetting": false
+                            "value": "~7"
                         },
                         {
                             "name": "WEBSITE_HEALTHCHECK_MAXPINGFAILURES",
-                            "value": "10",
-                            "slotSetting": false
+                            "value": "10"
                         },
                         {
                             "name": "WEBSITE_RUN_FROM_PACKAGE",
-                            "value": "0",
-                            "slotSetting": false
-                        }
+                            "value": "0"
+                        },
+                        {
+                            "name": "PROJECT",
+                            "value": "FunctionApp"
+                        }                        
                     ],
                     "httpsOnly": true,
                     "clientAffinityEnabled": false,
