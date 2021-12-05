@@ -63,14 +63,14 @@ Here is a screenshot of the application
 
 **Step 3** - Deploy the Azure resources
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzureAD-AppSecretManager%2Fmain%2FDeployment%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftimoleo23%2FTeams-PhoneNumbersManager%2Fmain%2FDeployment%2FGitDeploy%2Fazuredeploy.json)
 
 Here are the information requested for the deployment:
 - **resourcePrefix**: the prefix to your Azure resourcecs names
 - **Teams-service-account-name** : the UPN of the Service Account created in **step 1** 
 - **Teams-service-account-secret** : the password of the Service Account created in **step 1**
-- **Teams-spn-appId** : the clientID of the application registered in **step 2** 
-- **Teams-spn-secret** : the secret value of the application registered in **step 2**
+<!-- - **Teams-spn-appId** : the clientID of the application registered in **step 2**  -->
+<!-- - **Teams-spn-secret** : the secret value of the application registered in **step 2** -->
 
 Check the outputs of the deployment to get the value of Azure Function app code (**AzFuncCode**) needed for the configuration of the Power Automate flows.
 
