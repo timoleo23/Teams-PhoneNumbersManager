@@ -3,11 +3,6 @@
 *.md
 local.settings.json
 
-test
-Media
-Deployment
-Packages
-
 # Excluded (for future use)
 Get-CsOnlineLisLocation
 Get-CsOnlineTelNumLocDetails
