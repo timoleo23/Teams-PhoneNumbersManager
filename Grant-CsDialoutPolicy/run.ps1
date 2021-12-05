@@ -11,7 +11,7 @@ $StatusCode = [HttpStatusCode]::OK
 $Resp = ConvertTo-Json @()
 
 # Validate the request JSON body against the schema_validator
-$Schema = Get-jsonSchema ('Grant-CsTeamsCallingPolicy')
+$Schema = Get-jsonSchema ('Grant-CsDialoutPolicy')
 
 If (-Not $Request.Body) {
     $Resp = @{ "Error" = "Missing JSON body in the POST request"}
@@ -52,7 +52,7 @@ Catch {
 # Get Azure AD Groups
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        $Resp = Grant-CsTeamsCallingPolicy -Identity $Id -PolicyName $PolicyName -ErrorAction:Stop
+        $Resp = Grant-CsDialoutPolicy -Identity $Id -PolicyName $PolicyName -ErrorAction:Stop
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }

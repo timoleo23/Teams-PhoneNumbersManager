@@ -74,6 +74,36 @@ Switch ($schemaName) {
     }
 '@ }
 
+# JSON schema definition for Grant-CsDialoutPolicy     
+'Grant-CsDialoutPolicy' { Return @'
+    {
+        "type": "object",
+        "title": "Grant-CsDialoutPolicy API JSON body definition",  
+        "required": [
+            "Identity"
+        ],
+        "properties": {
+            "Identity": {
+                "type": "string",
+                "title": "Specifies the identity of the target user",
+                "examples": [
+                    "jphillips@contoso.com",
+                    "sip:jphillips@contoso.com",
+                    "98403f08-577c-46dd-851a-f0460a13b03d"
+                ]
+            },  
+            "PolicyName": {
+                "type": "string",
+                "title": "The name of the policy being assigned. To remove an existing user level policy assignment, specify PolicyName as null.",
+                "examples": [
+                    "tag:DialoutCPCandPSTNInternational",
+                    "tag:DialoutCPCDomesticPSTNInternational"
+                ]
+            }
+        }
+    }
+'@ }
+
 # No match found - Return empty JSON definition  
 Default { Return @'
     {}
