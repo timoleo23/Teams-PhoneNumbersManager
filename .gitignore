@@ -13,6 +13,7 @@ __azurite_db*__.json
 *test*
 .vscode
 parameters-local.json
+Deployment/*.ps1
 
 # PowerShell Gallery Modules
 Modules/AzureAD

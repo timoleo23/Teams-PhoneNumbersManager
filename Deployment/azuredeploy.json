@@ -145,9 +145,9 @@
             }           
         },
         {
-            "name": "[concat(variables('functionAppName'), '/ZipDeploy')]",
-            "type": "Microsoft.Web/sites/extensions",
-            "apiVersion": "2021-02-01",
+            "name": "[format('{0}/{1}', variables('functionAppName'), 'ZipDeploy')]",
+            "type": "Microsoft.Web/sites/siteextensions",
+            "apiVersion": "2020-06-01",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
             ],
@@ -161,7 +161,8 @@
             "apiVersion": "2019-09-01",
             "location": "[resourceGroup().location]",
             "dependsOn" :[
-                "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
+                "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
+                "[resourceId('Microsoft.Web/sites/siteextensions', variables('functionAppName'), 'ZipDeploy')]"
             ],
             "properties": {
                 "enabledForDeployment": false,

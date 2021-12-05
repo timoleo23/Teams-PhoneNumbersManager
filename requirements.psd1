@@ -4,6 +4,8 @@
 @{
     # For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'.
     # To use the Az module in your function app, please uncomment the line below.
-#    'AzureAD' = '2.*'
-#    'MicrosoftTeams' = '3.*'
+ 
+    # Uncomment the line below if you don't plan to uze ZipDeploy method using the provided provided ZIP package.
+ #   'AzureAD' = '2.*'
+ #   'MicrosoftTeams' = '3.*'
 }
