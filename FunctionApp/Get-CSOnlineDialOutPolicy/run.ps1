@@ -48,7 +48,7 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
 # Get CS Online Dialout Policies
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        $Resp = Get-CSOnlineDialOutPolicy | Select-Object Identity | ConvertTo-Json
+        $Resp = Get-CSOnlineDialOutPolicy | select-object -Property Identity,@{Name='DisplayName';Expression={$_.Identity.Replace('Tag:','')}} | ConvertTo-Json
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
