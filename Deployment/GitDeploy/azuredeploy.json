@@ -125,10 +125,6 @@
                             "value": "~7"
                         },
                         {
-                            "name": "WEBSITE_HEALTHCHECK_MAXPINGFAILURES",
-                            "value": "10"
-                        },
-                        {
                             "name": "WEBSITE_RUN_FROM_PACKAGE",
                             "value": "0"
                         },
@@ -142,8 +138,7 @@
                     "alwaysOn": true,
                     "powerShellVersion" : "~7",
                     "use32BitWorkerProcess": false,
-                    "ftpsState": "Disabled",
-                    "healthCheckPath": "/health-check"
+                    "ftpsState": "Disabled"
                 }
             },
             "resources": [
