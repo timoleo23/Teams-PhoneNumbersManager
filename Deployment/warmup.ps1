@@ -20,15 +20,19 @@ function generateConfig ([string]$hostname,[string]$code,[string]$UPN,[int]$work
 }
 
 function checkStatus($jobStatus) {
+    $check = $true
     foreach ($item in $jobStatus) {
         if ( ($item.StatusCode -ne 200) -OR ([string]::IsNullOrWhiteSpace($item.StatusCode))) { 
-            return $false
+            $check = $false
         }
     }
-    return $true
+    Return $check
 }
 
+($jobresult.StatusCode -ne 200) -OR ([string]::IsNullOrWhiteSpace($item.StatusCode))  
+
 $retries = 0
+$jobresults = @()
 Do
 {
     Write-Host "Function warm-up started at" $(Get-Date) "- Attempt #" ($retries+1)
@@ -42,21 +46,22 @@ Do
         return $Resp
     } -AsJob
     $jobresult = $job | Wait-Job | Receive-Job
-    $test = checkStatus($jobresults)
-
     $jobresults += $jobresult
-    $job | Remove-Job
-    If ($retries -ne 0) {
+
+    $test = checkStatus($jobresults)
+    If ($test -EQ $FALSE) {
         Write-Host "Sleeping for 60s before retrying"
-        Start-Sleep -Seconds 60
+        Start-Sleep -Seconds 3
     }
+
+    $job | Remove-Job
     $retries +=1
 }
 until( ($test -EQ $TRUE) -OR ($retries -ge $maxRetry))
 
-If ($retries -lt $maxRetry) {
+If ($retries -ge $maxRetry) {
     Write-Host "Reached max retries - Function app still not warmed up - Please restart the script or check error messages"
 }
-$jobresults | Select-Object TriggerTime,Duration,StatusCode,StatusDescription | Sort-Object TriggerTime 
+$jobresults | Sort-Object TriggerTime | Format-Table TriggerTime,WorkerId,Duration,StatusCode,StatusDescription
 
 
