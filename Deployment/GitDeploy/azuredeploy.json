@@ -67,10 +67,10 @@
             "apiVersion": "2021-02-01",
             "location": "[resourceGroup().location]",
             "sku": {
-                "name": "S1",
-                "tier": "Standard",
-                "size": "S1",
-                "family": "S",
+                "name": "P1v2",
+                "tier": "PremiumV2",
+                "size": "P1v2",
+                "family": "Pv2",
                 "capacity": 1
             },
             "kind": "app",
