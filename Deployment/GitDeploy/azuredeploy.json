@@ -40,9 +40,9 @@
     "variables": {
         "randomize" : "[substring(uniqueString(resourceGroup().id),0,5)]",
         "stoAccountName": "[concat('stoaccount',variables('randomize'))]",
-        "serverFarmName" : "[concat('AzSP-', parameters('resourcePrefix'),'-',variables('randomize'))]",
-        "functionAppName" : "[concat('AzFA-', parameters('resourcePrefix'),'-',variables('randomize'))]",
-        "keyVaultName" : "[concat('AzKV-', parameters('resourcePrefix'),'-',variables('randomize'))]"
+        "serverFarmName" : "[concat(parameters('resourcePrefix'),'-',variables('randomize'))]",
+        "functionAppName" : "[concat(parameters('resourcePrefix'),'-',variables('randomize'))]",
+        "keyVaultName" : "[concat(parameters('resourcePrefix'),'-',variables('randomize'))]"
     },
     "resources": [
         {
