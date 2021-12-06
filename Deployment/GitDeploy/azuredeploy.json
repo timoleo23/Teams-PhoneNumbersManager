@@ -239,11 +239,11 @@
     "outputs": {
         "defaultHostName": {
             "type": "string",
-            "value": "[reference(resourceId('Microsoft.Web/sites', variables('functionAppName')), '2020-12-01', 'Full').defaultHostName]"
+            "value": "[reference(resourceId('Microsoft.Web/sites', variables('functionAppName')), '2021-03-01', 'Full').properties.defaultHostName]"
         },
         "outboundIpAddresses": {
             "type": "string",
-            "value": "[reference(resourceId('Microsoft.Web/sites', variables('functionAppName')), '2020-12-01', 'Full').outboundIpAddresses]"
+            "value": "[reference(resourceId('Microsoft.Web/sites', variables('functionAppName')), '2021-03-01', 'Full').properties.outboundIpAddresses]"
         }        
     }
 }
