@@ -12,8 +12,10 @@ __azurite_db*__.json
 # Development artivfacts
 *test*
 .vscode
+Deployment/GitDeploy/deploy.ps1
 parameters-local.json
 
 # PowerShell Gallery Modules
 Modules/AzureAD
 Modules/MicrosoftTeams
+
