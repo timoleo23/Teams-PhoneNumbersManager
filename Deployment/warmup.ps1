@@ -37,7 +37,7 @@ Do
 {
     Write-Host "Function warm-up started at" $(Get-Date) "- Attempt #" ($retries+1)
     $job = generateConfig $hostname $code $upn $workers $retries | ForEach-Object -ThrottleLimit $workers -Parallel { 
-        $timeout = 120
+        $timeout = 150
         $start = Get-Date
         $Result = Invoke-WebRequest -URI $_.URI -Method 'Get' -TimeoutSec $timeout -MaximumRetryCount 1
         $finish = Get-Date
@@ -50,8 +50,8 @@ Do
 
     $test = checkStatus($jobresults)
     If ($test -EQ $FALSE) {
-        Write-Host "Sleeping for 60s before retrying"
-        Start-Sleep -Seconds 3
+        Write-Host "Sleeping for 90s before retrying"
+        Start-Sleep -Seconds 90
     }
 
     $job | Remove-Job

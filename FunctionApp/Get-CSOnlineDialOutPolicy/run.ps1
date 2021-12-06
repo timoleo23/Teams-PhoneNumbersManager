@@ -11,51 +11,51 @@ $StatusCode = [HttpStatusCode]::OK
 $Resp = ConvertTo-Json @()
 
 # API stubbing
-# $DialoutPolicies = @'
-# [
-#       { "Identity": "Tag:DialoutCPCandPSTNInternational"      },
-#       { "Identity": "Tag:DialoutCPCDomesticPSTNInternational" },
-#       { "Identity": "Tag:DialoutCPCDisabledPSTNInternational" },
-#       { "Identity": "Tag:DialoutCPCInternationalPSTNDomestic" },
-#       { "Identity": "Tag:DialoutCPCInternationalPSTNDisabled" },
-#       { "Identity": "Tag:DialoutCPCandPSTNDomestic"           },
-#       { "Identity": "Tag:DialoutCPCDomesticPSTNDisabled"      },
-#       { "Identity": "Tag:DialoutCPCDisabledPSTNDomestic"      },
-#       { "Identity": "Tag:DialoutCPCandPSTNDisabled"           },
-#       { "Identity": "Tag:DialoutCPCZoneAPSTNInternational"    },
-#       { "Identity": "Tag:DialoutCPCZoneAPSTNDomestic"         },
-#       { "Identity": "Tag:DialoutCPCZoneAPSTNDisabled"         }
-# ]
-# '@ 
-# $Resp = $DialoutPolicies | ConvertFrom-Json | ConvertTo-Json
+$DialoutPolicies = @'
+[
+      { "Identity": "Tag:DialoutCPCandPSTNInternational"      , "DisplayName": "DialoutCPCandPSTNInternational"     },
+      { "Identity": "Tag:DialoutCPCDomesticPSTNInternational" , "DisplayName": "DialoutCPCDomesticPSTNInternational"},
+      { "Identity": "Tag:DialoutCPCDisabledPSTNInternational" , "DisplayName": "DialoutCPCDisabledPSTNInternational" },
+      { "Identity": "Tag:DialoutCPCInternationalPSTNDomestic" , "DisplayName": "DialoutCPCInternationalPSTNDomestic"},
+      { "Identity": "Tag:DialoutCPCInternationalPSTNDisabled" , "DisplayName": "DialoutCPCInternationalPSTNDisabled"},
+      { "Identity": "Tag:DialoutCPCandPSTNDomestic"           , "DisplayName": "DialoutCPCandPSTNDomestic"},
+      { "Identity": "Tag:DialoutCPCDomesticPSTNDisabled"      , "DisplayName": "DialoutCPCDomesticPSTNDisabled"},
+      { "Identity": "Tag:DialoutCPCDisabledPSTNDomestic"      , "DisplayName": "DialoutCPCDisabledPSTNDomestic"},
+      { "Identity": "Tag:DialoutCPCandPSTNDisabled"           , "DisplayName": "DialoutCPCandPSTNDisabled"  },
+      { "Identity": "Tag:DialoutCPCZoneAPSTNInternational"    , "DisplayName": "DialoutCPCZoneAPSTNInternational" },
+      { "Identity": "Tag:DialoutCPCZoneAPSTNDomestic"         , "DisplayName": "DialoutCPCZoneAPSTNDomestic" },
+      { "Identity": "Tag:DialoutCPCZoneAPSTNDisabled"         , "DisplayName": "DialoutCPCZoneAPSTNDisabled"  }
+]
+'@ 
+$Resp = $DialoutPolicies | ConvertFrom-Json | ConvertTo-Json
 
 # Authenticate to AzureAD using service account
-$Account = $env:AdminAccountLogin 
-$PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
-$Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
+# $Account = $env:AdminAccountLogin 
+# $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
+# $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
-If ($StatusCode -eq [HttpStatusCode]::OK) {
-    Try {
-        Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
-    }
-    Catch {
-        $Resp = @{ "Error" = $_.Exception.Message }
-        $StatusCode =  [HttpStatusCode]::BadGateway
-        Write-Error $_
-    }
-}
+# If ($StatusCode -eq [HttpStatusCode]::OK) {
+#     Try {
+#         Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
+#     }
+#     Catch {
+#         $Resp = @{ "Error" = $_.Exception.Message }
+#         $StatusCode =  [HttpStatusCode]::BadGateway
+#         Write-Error $_
+#     }
+# }
 
 # Get CS Online Dialout Policies
-If ($StatusCode -eq [HttpStatusCode]::OK) {
-    Try {
-        $Resp = Get-CSOnlineDialOutPolicy | select-object -Property Identity,@{Name='DisplayName';Expression={$_.Identity.Replace('Tag:','')}} | ConvertTo-Json
-    }
-    Catch {
-        $Resp = @{ "Error" = $_.Exception.Message }
-        $StatusCode =  [HttpStatusCode]::BadGateway
-        Write-Error $_
-    }
-}
+# If ($StatusCode -eq [HttpStatusCode]::OK) {
+#     Try {
+#         $Resp = Get-CSOnlineDialOutPolicy | select-object -Property Identity,@{Name='DisplayName';Expression={$_.Identity.Replace('Tag:','')}} | ConvertTo-Json
+#     }
+#     Catch {
+#         $Resp = @{ "Error" = $_.Exception.Message }
+#         $StatusCode =  [HttpStatusCode]::BadGateway
+#         Write-Error $_
+#     }
+# }
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
