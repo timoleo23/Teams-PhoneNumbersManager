@@ -20,7 +20,6 @@ Catch {
 
 Disconnect-MicrosoftTeams
 Disconnect-AzureAD
-Get-PSSession | Remove-PSSession
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
