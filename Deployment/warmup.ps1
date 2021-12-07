@@ -29,15 +29,13 @@ function checkStatus($jobStatus) {
     Return $check
 }
 
-($jobresult.StatusCode -ne 200) -OR ([string]::IsNullOrWhiteSpace($item.StatusCode))  
-
 $retries = 0
 $jobresults = @()
 Do
 {
     Write-Host "Function warm-up started at" $(Get-Date) "- Attempt #" ($retries+1)
     $job = generateConfig $hostname $code $upn $workers $retries | ForEach-Object -ThrottleLimit $workers -Parallel { 
-        $timeout = 150
+        $timeout = 180
         $start = Get-Date
         $Result = Invoke-WebRequest -URI $_.URI -Method 'Get' -TimeoutSec $timeout -MaximumRetryCount 1
         $finish = Get-Date
@@ -50,8 +48,10 @@ Do
 
     $test = checkStatus($jobresults)
     If ($test -EQ $FALSE) {
-        Write-Host "Sleeping for 90s before retrying"
-        Start-Sleep -Seconds 90
+        Write-Host "Results - Attempt #" ($retries+1)
+        $jobresult | Sort-Object TriggerTime | Format-Table TriggerTime,WorkerId,Duration,StatusCode,StatusDescription
+        Write-Host "Sleeping for 30s before retrying"
+        Start-Sleep -Seconds 30
     }
 
     $job | Remove-Job
