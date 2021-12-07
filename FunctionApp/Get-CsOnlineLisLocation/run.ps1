@@ -13,10 +13,12 @@ $Resp = ConvertTo-Json @()
 # Get query parameters to search non assigned number based on location - OPTIONAL parameter
 $Location = $Request.Query.Location
 
-# Authenticate to AzureAD using service account
+# Authenticate to MicrosofTeams using service account
 $Account = $env:AdminAccountLogin 
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
+
+Import-Module MicrosoftTeams
 
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
@@ -29,7 +31,7 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
     }
 }
 
-# Get Azure AD Groups
+# Get list of Emmergency Locations
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         If ([string]::IsNullOrWhiteSpace($Location)){

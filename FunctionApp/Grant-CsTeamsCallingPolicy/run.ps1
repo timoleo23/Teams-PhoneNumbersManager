@@ -40,6 +40,8 @@ $Account = $env:AdminAccountLogin
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
+Import-Module MicrosoftTeams
+
 Try {
     Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
 }
@@ -49,7 +51,7 @@ Catch {
     Write-Error $_
 }
 
-# Get Azure AD Groups
+# Set Teams Calling Policies
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         $Resp = Grant-CsTeamsCallingPolicy -Identity $Id -PolicyName $PolicyName -ErrorAction:Stop

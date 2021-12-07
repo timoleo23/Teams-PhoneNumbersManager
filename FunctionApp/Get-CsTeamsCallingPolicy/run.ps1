@@ -10,10 +10,12 @@ Write-Host "PowerShell HTTP trigger function processed a request."
 $StatusCode = [HttpStatusCode]::OK
 $Resp = ConvertTo-Json @()
 
-# Authenticate to AzureAD using service account
+# Authenticate to MicrosofTeams using service account
 $Account = $env:AdminAccountLogin 
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
+
+Import-Module MicrosoftTeams
 
 Try {
     Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
@@ -24,7 +26,7 @@ Catch {
     Write-Error $_
 }
 
-# Get Azure AD Groups
+# Get calling policies
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         $Resp = Get-CsTeamsCallingPolicy | select-object -Property Identity,@{Name='DisplayName';Expression={$_.Identity.Replace('Tag:','')}} | ConvertTo-Json

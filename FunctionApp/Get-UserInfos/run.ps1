@@ -17,10 +17,13 @@ If ([string]::IsNullOrWhiteSpace($SearchString)){
     $StatusCode =  [HttpStatusCode]::BadRequest
 }
 
-# Authenticate to AzureAD and Microsoft Teams using service account
+# Authenticate to AzureAD and MicrosofTeams using service account
 $Account = $env:AdminAccountLogin 
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
+
+Import-Module MicrosoftTeams
+Import-Module AzureAD -UseWindowsPowerShell
 
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
@@ -34,7 +37,7 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
     }
 }
 
-# Get Azure AD Groups
+# Get User profile infos
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         # Get user general infos from Teams Communication Services

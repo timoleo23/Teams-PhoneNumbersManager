@@ -6,6 +6,9 @@ using namespace System.Net
 # Write to the Azure Functions log stream.
 Write-Host "PowerShell HTTP trigger function processed a request."
 
+Import-Module MicrosoftTeams
+Import-Module AzureAD -UseWindowsPowerShell
+
 Try {
     Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
     Connect-AzureAD -Credential $Credential -ErrorAction:Stop

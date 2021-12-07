@@ -17,10 +17,12 @@ If ([string]::IsNullOrWhiteSpace($TelephoneNumber)){
     $StatusCode =  [HttpStatusCode]::BadRequest
 }
 
-# Authenticate to AzureAD and Microsoft Teams using service account
+# Authenticate to Microsoft Teams using service account
 $Account = $env:AdminAccountLogin 
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
+
+Import-Module MicrosoftTeams
 
 Try {
     Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
@@ -31,7 +33,7 @@ Catch {
     Write-Error $_
 }
 
-# Get Azure AD Groups
+# Get telephone number emmergency location
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         $LocationId = [string](Get-CsOnlineTelephoneNumber -TelephoneNumber $TelephoneNumber -ExpandLocation -ErrorAction:Stop | Select-Object Location).Location.LocationId.Guid
