@@ -6,8 +6,10 @@ using namespace System.Net
 # Write to the Azure Functions log stream.
 Write-Host "PowerShell HTTP trigger function processed a request."
 
-Import-Module MicrosoftTeams
-Import-Module AzureAD -UseWindowsPowerShell
+$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.0.0\MicrosoftTeams.psd1"
+Import-Module $MSTeamsDModuleLocation
+$AzureADModuleLocation = ".\Modules\AzureAD\2.0.2.140\AzureAD.psd1"
+Import-Module $AzureADModuleLocation -UseWindowsPowerShell -UseWindowsPowerShell
 
 Try {
     Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop

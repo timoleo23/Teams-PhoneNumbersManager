@@ -46,7 +46,7 @@ Do
     $jobresult = $job | Wait-Job | Receive-Job
     $jobresults += $jobresult
 
-    $test = checkStatus($jobresults)
+    $test = checkStatus($jobresult)
     If ($test -EQ $FALSE) {
         Write-Host "Results - Attempt #" ($retries+1)
         $jobresult | Sort-Object TriggerTime | Format-Table TriggerTime,WorkerId,Duration,StatusCode,StatusDescription

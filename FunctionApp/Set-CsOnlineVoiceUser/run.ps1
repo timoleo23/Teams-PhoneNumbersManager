@@ -41,7 +41,8 @@ $Account = $env:AdminAccountLogin
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
-Import-Module MicrosoftTeams
+$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.0.0\MicrosoftTeams.psd1"
+Import-Module $MSTeamsDModuleLocation
 
 Try {
     Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
@@ -81,5 +82,6 @@ Disconnect-MicrosoftTeams
 # Trap all other exceptions that may occur at runtime and EXIT Azure Function
 Trap {
     Write-Error $_.Exception.Message
+    Disconnect-MicrosoftTeams
     break
 }
