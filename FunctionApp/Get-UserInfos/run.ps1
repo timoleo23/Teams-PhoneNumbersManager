@@ -24,13 +24,13 @@ $Credential = New-Object -TypeName System.Management.Automation.PSCredential -Ar
 
 $MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.0.0\MicrosoftTeams.psd1"
 Import-Module $MSTeamsDModuleLocation
-$AzureADModuleLocation = ".\Modules\AzureAD\2.0.2.140\AzureAD.psd1"
-Import-Module $AzureADModuleLocation -UseWindowsPowerShell -UseWindowsPowerShell
+# $AzureADModuleLocation = ".\Modules\AzureAD\2.0.2.140\AzureAD.psd1"
+# Import-Module $AzureADModuleLocation -UseWindowsPowerShell
 
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
-        Connect-AzureAD -Credential $Credential -ErrorAction:Stop
+#        Connect-AzureAD -Credential $Credential -ErrorAction:Stop
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
@@ -46,13 +46,13 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
         $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property objectID,DisplayName,UserPrincipalName,UsageLocation,LineURI,EnterpriseVoiceEnabled,HostedVoiceMail,VoicePolicy,TeamsCallingPolicy,OnlineDialOutPolicy
         Write-Host "User profile info collected."
         # Get user assigned licenced for PSTN calling from AzureAD
-        $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectID | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
-        Write-Host "User calling plan sku collected."
-        if (-not([string]::IsNullOrWhiteSpace($CallingPlan))) {
-            $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $CallingPlan.SkuPartNumber 
-        } else {
-            $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $null 
-        }
+        # $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectID | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
+        # Write-Host "User calling plan sku collected."
+        # if (-not([string]::IsNullOrWhiteSpace($CallingPlan))) {
+        #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $CallingPlan.SkuPartNumber 
+        # } else {
+        #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $null 
+        # }
         ##################################################################################################################################
         # Get user defined Emergency Location - Code commented for futur use (manage users Emergency Location)
         ##################################################################################################################################
@@ -80,13 +80,13 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
     Body = $Resp
 })
 
-Disconnect-AzureAD
+#Disconnect-AzureAD
 Disconnect-MicrosoftTeams
 
 # Trap all other exceptions that may occur at runtime and EXIT Azure Function
 Trap {
     Write-Error $_.Exception.Message
-    Disconnect-MicrosoftTeams
+#    Disconnect-AzureAD
     Disconnect-MicrosoftTeams
     break
 }

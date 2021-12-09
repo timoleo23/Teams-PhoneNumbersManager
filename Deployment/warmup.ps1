@@ -43,7 +43,7 @@ Do
         $Resp = New-Object -TypeName psobject -Property @{Duration= [Math]::Round($duration,2); StatusCode= $Result.StatusCode; StatusDescription= If($duration -gt $timeout) {"Request timed out ($timeout sec)"} Else {$Result.StatusDescription};TriggerTime= (Get-Date -DisplayHint Time);WorkerId=$_.ID}
         return $Resp
     } -AsJob
-    $jobresult = $job | Wait-Job | Receive-Job
+    $jobresult = $job | Wait-Job -Timeout 200 | Receive-Job
     $jobresults += $jobresult
 
     $test = checkStatus($jobresult)
