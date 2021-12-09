@@ -35,7 +35,7 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
 # Get list of Emmergency Locations
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        If ([string]::IsNullOrWhiteSpace($Location)){
+        If ([string]::IsNullOrEmpty($Location)){
             $Resp = Get-CsOnlineLisLocation | Select-Object LocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
         }
         Else {

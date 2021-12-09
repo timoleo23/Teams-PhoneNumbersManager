@@ -22,7 +22,7 @@ function generateConfig ([string]$hostname,[string]$code,[string]$UPN,[int]$work
 function checkStatus($jobStatus) {
     $check = $true
     foreach ($item in $jobStatus) {
-        if ( ($item.StatusCode -ne 200) -OR ([string]::IsNullOrWhiteSpace($item.StatusCode))) { 
+        if ( ($item.StatusCode -ne 200) -OR ([string]::IsNullOrEmpty($item.StatusCode))) { 
             $check = $false
         }
     }

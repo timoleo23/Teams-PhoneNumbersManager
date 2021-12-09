@@ -33,8 +33,8 @@ Catch {
 # Get unassigned telephone numbers
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        $Resp = Get-CsOnlineTelephoneNumber -IsNotAssigned -InventoryType Subscriber -ErrorAction:Stop | Select-Object -Property Id,@{Name='Number';Expression={"+" + [string]$_.Id}},CityCode,@{Name='Country';Expression={If((-not([string]::IsNullOrWhiteSpace($_.CityCode)))){($_.CityCode -Split "-")[1]}Else{$null}}},ActivationState
-        If ([string]::IsNullOrWhiteSpace($Location)){
+        $Resp = Get-CsOnlineTelephoneNumber -IsNotAssigned -InventoryType Subscriber -ErrorAction:Stop | Select-Object -Property Id,@{Name='Number';Expression={"+" + [string]$_.Id}},CityCode,@{Name='Country';Expression={If((-not([string]::IsNullOrEmpty($_.CityCode)))){($_.CityCode -Split "-")[1]}Else{$null}}},ActivationState
+        If ([string]::IsNullOrEmpty($Location)){
             $Resp = $Resp |  ConvertTo-Json
         }
         Else {

@@ -12,7 +12,7 @@ $Resp = ConvertTo-Json @()
 
 # Get query parameters to search user profile info - REQUIRED parameter
 $SearchString = $Request.Query.SearchString
-If ([string]::IsNullOrWhiteSpace($SearchString)){
+If ([string]::IsNullOrEmpty($SearchString)){
     $Resp = @{ "Error" = "Missing query parameter - Please provide UPN via query string ?objectId=" }
     $StatusCode =  [HttpStatusCode]::BadRequest
 }
@@ -48,7 +48,7 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
         # Get user assigned licenced for PSTN calling from AzureAD
         # $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectID | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
         # Write-Host "User calling plan sku collected."
-        # if (-not([string]::IsNullOrWhiteSpace($CallingPlan))) {
+        # if (-not([string]::IsNullOrEmpty($CallingPlan))) {
         #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $CallingPlan.SkuPartNumber 
         # } else {
         #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Calling Plan' -Value $null 
@@ -58,7 +58,7 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
         ##################################################################################################################################
         # $EmergencyLocation = Get-CsOnlineVoiceUser -Identity $SearchString -ExpandLocation | Select-Object Location
         # Write-Host "User emergency location collected."
-        # if (-not([string]::IsNullOrWhiteSpace($EmergencyLocation))) {
+        # if (-not([string]::IsNullOrEmpty($EmergencyLocation))) {
         #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Location Id' -Value $EmergencyLocation.location.locationId.Guid 
         # } else {
         #     $userInfos | Add-Member -MemberType NoteProperty -Name 'Location Id' -Value $null 

@@ -31,7 +31,7 @@ Else {
         # Set the function variables
         Write-Host 'Inputs validated'
         $Id = $Request.Body.Identity
-        if([string]::IsNullOrWhiteSpace($telNumber)) {
+        if([string]::IsNullOrEmpty($telNumber)) {
             $telNumber = $null
         } Else {
             $telNumber = $Request.Body.TelephoneNumber
@@ -60,7 +60,7 @@ Catch {
 # Assign Number to user
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        # If (-Not([string]::IsNullOrWhiteSpace($LocId))){
+        # If (-Not([string]::IsNullOrEmpty($LocId))){
         #     $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -LocationID $LocId -ErrorAction:Stop
         # }
         # Else {

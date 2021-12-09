@@ -12,7 +12,7 @@ $Resp = ConvertTo-Json @()
 
 # Get query parameters to get telephone number detailed lication - REQUIRED parameter
 $TelephoneNumber = $Request.Query.TelephoneNumber
-If ([string]::IsNullOrWhiteSpace($TelephoneNumber)){
+If ([string]::IsNullOrEmpty($TelephoneNumber)){
     $Resp = @{ "Error" = "Missing query parameter - Please provide TelephoneNumber via query string ?TelephoneNumber=(e.g. 12065783601)" }
     $StatusCode =  [HttpStatusCode]::BadRequest
 }
