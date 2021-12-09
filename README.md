@@ -63,7 +63,13 @@ Here is a screenshot of the application
 
 **Step 3** - Deploy the Azure resources
 
+GitHub deploy
+
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftimoleo23%2FTeams-PhoneNumbersManager%2Fmain%2FDeployment%2FGitDeploy%2Fazuredeploy.json)
+
+ZipDeploy
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftimoleo23%2FTeams-PhoneNumbersManager%2Fmain%2FDeployment%2FZipDeploy%2Fazuredeploy.json)
 
 Here are the information requested for the deployment:
 - **resourcePrefix**: the prefix to your Azure resourcecs names
