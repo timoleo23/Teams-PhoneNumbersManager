@@ -60,10 +60,10 @@
             "apiVersion": "2021-02-01",
             "location": "[resourceGroup().location]",
             "sku": {
-                "name": "P1v2",
-                "tier": "PremiumV2",
-                "size": "P1v2",
-                "family": "Pv2",
+                "name": "B1",
+                "tier": "Basic",
+                "size": "B1",
+                "family": "B",
                 "capacity": 1
             },
             "kind": "app",
@@ -124,11 +124,6 @@
                             "slotSetting": false
                         },
                         {
-                            "name": "WEBSITE_HEALTHCHECK_MAXPINGFAILURES",
-                            "value": "10",
-                            "slotSetting": false
-                        },
-                        {
                             "name": "WEBSITE_RUN_FROM_PACKAGE",
                             "value": "1",
                             "slotSetting": false
@@ -139,8 +134,7 @@
                     "alwaysOn": true,
                     "powerShellVersion" : "~7",
                     "use32BitWorkerProcess": false,
-                    "ftpsState": "Disabled",
-                    "healthCheckPath": "/health-check"
+                    "ftpsState": "Disabled"
                 }
             }           
         },

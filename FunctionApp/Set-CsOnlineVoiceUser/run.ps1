@@ -31,7 +31,11 @@ Else {
         # Set the function variables
         Write-Host 'Inputs validated'
         $Id = $Request.Body.Identity
-        $telNumber = $Request.Body.TelephoneNumber
+        if([string]::IsNullOrWhiteSpace($telNumber)) {
+            $telNumber = $null
+        } Else {
+            $telNumber = $Request.Body.TelephoneNumber
+        }
         # $LocId = $Request.Body.LocationID
     }    
 }
