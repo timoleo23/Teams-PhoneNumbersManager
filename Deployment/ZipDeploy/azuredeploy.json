@@ -109,7 +109,7 @@
                         },
                         {
                             "name": "FUNCTIONS_WORKER_PROCESS_COUNT",
-                            "value": "4",
+                            "value": "3",
                             "slotSetting": false
                         },
                         {

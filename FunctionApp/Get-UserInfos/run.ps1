@@ -82,10 +82,11 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 #Disconnect-AzureAD
 Disconnect-MicrosoftTeams
+Get-PSSession | Remove-PSSession
 
 # Trap all other exceptions that may occur at runtime and EXIT Azure Function
 Trap {
-    Write-Error $_.Exception.Message
+    Write-Error $_
 #    Disconnect-AzureAD
     Disconnect-MicrosoftTeams
     break

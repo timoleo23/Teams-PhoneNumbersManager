@@ -31,7 +31,11 @@ Else {
         # Set the function variables
         Write-Host 'Inputs validated'
         $Id = $Request.Body.Identity
-        $PolicyName = $Request.Body.PolicyName   
+        if([string]::IsNullOrEmpty($Request.Body.PolicyName)) {
+            $PolicyName = $null
+        } Else {
+            $PolicyName = $Request.Body.PolicyName
+        }
     }    
 }
 
@@ -43,13 +47,15 @@ $Credential = New-Object -TypeName System.Management.Automation.PSCredential -Ar
 $MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.0.0\MicrosoftTeams.psd1"
 Import-Module $MSTeamsDModuleLocation
 
-Try {
-    Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
-}
-Catch {
-    $Resp = @{ "Error" = $_.Exception.Message }
-    $StatusCode =  [HttpStatusCode]::BadGateway
-    Write-Error $_
+If ($StatusCode -eq [HttpStatusCode]::OK) {
+    Try {
+        Connect-MicrosoftTeams -Credential $Credential -ErrorAction:Stop
+    }
+    Catch {
+        $Resp = @{ "Error" = $_.Exception.Message }
+        $StatusCode =  [HttpStatusCode]::BadGateway
+        Write-Error $_
+    }
 }
 
 # Set USer dial out policy
@@ -72,10 +78,11 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 })
 
 Disconnect-MicrosoftTeams
+Get-PSSession | Remove-PSSession
 
 # Trap all other exceptions that may occur at runtime and EXIT Azure Function
 Trap {
-    Write-Error $_.Exception.Message
+    Write-Error $_
     Disconnect-MicrosoftTeams
     break
 }
