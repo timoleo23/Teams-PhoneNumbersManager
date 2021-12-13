@@ -13,7 +13,7 @@
         "serviceAccountUPN": {
             "type": "string",
             "metadata": {
-                "description": "email of youe Microsoft Teams Service Account"
+                "description": "email of your Microsoft Teams Service Account"
             }
         },    
         "serviceAccountSecret": {
@@ -90,42 +90,34 @@
                     "appSettings": [
                         {
                             "name": "AdminAccountLogin",
-                            "value": "[concat('@Microsoft.KeyVault(VaultName=', variables('keyVaultName') ,';SecretName=Teams-service-account-name)')]",
-                            "slotSetting": true
+                            "value": "[concat('@Microsoft.KeyVault(VaultName=', variables('keyVaultName') ,';SecretName=Teams-service-account-name)')]"
                         },
                         {
                             "name": "AdminAccountPassword",
-                            "value": "[concat('@Microsoft.KeyVault(VaultName=', variables('keyVaultName') ,';SecretName=Teams-service-account-secret)')]",
-                            "slotSetting": true
-                        },
+                            "value": "[concat('@Microsoft.KeyVault(VaultName=', variables('keyVaultName') ,';SecretName=Teams-service-account-secret)')]"                        },
                         {
                             "name": "AzureWebJobsStorage",
                             "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('stoAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('stoAccountName')), '2019-06-01').keys[0].value)]"
                         },
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",
-                            "value": "~4",
-                            "slotSetting": false
+                            "value": "~4"
                         },
                         {
                             "name": "FUNCTIONS_WORKER_PROCESS_COUNT",
-                            "value": "3",
-                            "slotSetting": false
+                            "value": "3"
                         },
                         {
                             "name": "FUNCTIONS_WORKER_RUNTIME",
-                            "value": "powershell",
-                            "slotSetting": false
+                            "value": "powershell"
                         },
                         {
                             "name": "FUNCTIONS_WORKER_RUNTIME_VERSION",
-                            "value": "~7",
-                            "slotSetting": false
+                            "value": "~7"
                         },
                         {
                             "name": "WEBSITE_RUN_FROM_PACKAGE",
-                            "value": "1",
-                            "slotSetting": false
+                            "value": "1"
                         }
                     ],
                     "httpsOnly": true,
@@ -147,7 +139,7 @@
                     "properties": {
                         "packageUri": "[parameters('packageURI')]"
                     }
-                }
+                }        
             ]                
         },       
         {
@@ -166,8 +158,8 @@
                 "tenantId": "[subscription().tenantId]",
                 "accessPolicies": [
                     {
-                        "tenantId": "[subscription().tenantId]",
-                        "objectId": "[reference(resourceId('Microsoft.Web/sites', variables('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
+                        "tenantId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.tenantId]",
+                        "objectId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.principalId]",
                         "permissions": {
                             "secrets": [
                                 "Get"

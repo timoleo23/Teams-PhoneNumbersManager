@@ -13,7 +13,7 @@
         "serviceAccountUPN": {
             "type": "string",
             "metadata": {
-                "description": "email of youe Microsoft Teams Service Account"
+                "description": "email of your Microsoft Teams Service Account"
             }
         },    
         "serviceAccountSecret": {

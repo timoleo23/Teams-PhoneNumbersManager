@@ -2,7 +2,7 @@ Param(
     [Parameter(Mandatory=$true,HelpMessage="You must enter function hostname with argument -hostname [host URI]")][string]$hostname,
     [Parameter(Mandatory=$true,HelpMessage="You must enter function code with argument -code [function code]")][string]$code,
     [Parameter(Mandatory=$true,HelpMessage="You must enter function code with argument -UPN [UPN]")][string]$upn,
-    [Parameter(Mandatory=$false)][int]$workers  = 4,
+    [Parameter(Mandatory=$false)][int]$workers  = 3,
     [Parameter(Mandatory=$false)][int]$maxRetry = 3
 )
 
