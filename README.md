@@ -46,46 +46,105 @@ Here is a screenshot of the application
 
 
 ## How to deploy the solution
-**Step 1** - Create a Service Account
+**Pre-requisites**
 
-- Go to the [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) to manage users - Note : you need to have the appropriate permissions in Azure AD to create a new user.
-- Add a new user (e.g. "Service Account Teams admin") and save the password - Note : you'll need to reset this password the first time you use this account - Please connect to https://portal.azure.com with the user credentials and provide a new **complex** password - **Store this password in a secured location**
+- Azure AD admin role to create a new user (a Service Account), assign roles and register a new application
+- Azure AD Premium P1 license to enable Azure AD Conditional Access
+- Azure Subscription and account with contributor role (to deploy resources)
+- Power App license to deploy the application and Power Automate flows
+
+**Step 1** - Create a Service Account in Azure AD
+
+- Go to the [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) to manage users - Note: you need to have the appropriate permissions in Azure AD to create a new user.
+- Add a new user (e.g. "Service Account Teams admin") and save the password - Note:you'll need to reset this password the first time you use this account - Please connect to https://portal.azure.com with the user credentials and provide a new **complex** password - **Store this password in a secured location**
 - Go under "assigned roles" and assign the following roles :
   - Directory readers - to read the user profiles
   - Teams communications administration - to manage the Teams telephony system  
 
-**Step 2** - Register an application in Azure AD
-
-- Go to the [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to register a new application - Note : you need to have the appropriate permissions in Azure AD to register a new app.
-- Click on "New registration"
-- Give a name to your app (e.g. "SPN Teams admin") and select "Accounts in this organizational directory only (Contoso only - Single tenant)" and click on "Register"
-- Go to "Certificate & Secrets" and create a new secret - **Store this secret in a secured location**
-
-**Step 3** - Deploy the Azure resources
-
-GitHub deploy
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftimoleo23%2FTeams-PhoneNumbersManager%2Fmain%2FDeployment%2FGitDeploy%2Fazuredeploy.json)
-
-ZipDeploy
+**Step 2** - Deploy the Azure resources
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftimoleo23%2FTeams-PhoneNumbersManager%2Fmain%2FDeployment%2FZipDeploy%2Fazuredeploy.json)
 
 Here are the information requested for the deployment:
-- **resourcePrefix**: the prefix to your Azure resourcecs names
+- **resourcePrefix**: the prefix to your Azure resourcecs names (e.g. Teams-)
 - **Teams-service-account-name** : the UPN of the Service Account created in **step 1** 
 - **Teams-service-account-secret** : the password of the Service Account created in **step 1**
-<!-- - **Teams-spn-appId** : the clientID of the application registered in **step 2**  -->
-<!-- - **Teams-spn-secret** : the secret value of the application registered in **step 2** -->
 
-Check the outputs of the deployment to get the value of Azure Function app code (**AzFuncCode**) needed for the configuration of the Power Automate flows.
+Check the outputs of the deployment to get the values for Azure Function out-bound IP addresses (**outboundIpAddresses**) needed for the configuration of Azure AD Conditional Access (optional but recommended)
 
-**Step 4** - Deploy the Azure resources
+>__Note__: there is a known issue in the deployment that is expected to fail the first time with the following error "Encountered an error (ServiceUnavailable) from host runtime." - Please redeploy from the Azure portal for the deployment to succeed. We are working on a fix.
+
+**Step 3** - Warm-up of the Azure Function 
+
+The Azure Functions that run the PowerShell cmdlets are deployed on a dedicated plan - Cold start is a term used to describe the phenomenon that applications which haven’t been used take longer to start up, this typically happens when the functions are triggered for the first time (or after a restart or configuration change) - More info on [Understanding serverless cold start](https://azure.microsoft.com/en-us/blog/understanding-serverless-cold-start/)
+
+It takes several minutes for the PowerShell function apps to install the required module - You can use the [script](.\Deployment\warmup.ps1) provided in this repository to warm-up the Azure Function. Here is how to call this script:
+```PowerShell
+$hostname = [Azure_Function_Hostname]
+$code = [Azure_Function_Code]
+
+.\Deployment\warmup.ps1 -hostname $hostname -code $code
+
+# example
+# .\warmup.ps1 -hostname 'teams-phone-admin.azurewebsites.net' -code 'T8k9WlXXXXXigEt6XLIvkw=='
+```
+
+A successful warmup should look like that (by default, the script runs 3 times)
+
+```PowerShell
+TriggerTime         WorkerId Duration StatusCode StatusDescription
+-----------         -------- -------- ---------- -----------------
+14/12/2021 08:59:55        2     5,44        200 OK
+14/12/2021 08:59:55        3     5,47        200 OK
+14/12/2021 08:59:56        1     5,93        200 OK
+```
+
+
+**Step 4** - Deploy the Power App and flows
+
+>**[ADD INSTRUCTIONS FOR POWER APP & FLOW HERE]**
+
+
+At the end of this step, the solution should work end-to-end - The next-steps are recommended but optional and are here to add more security into the solution using Azure AD authentication & controls.
+
+**Step 5** - Activate Azure AD Conditional Access
+
+You can enable Azure Conditional Access on the Service Account used by your Azure Function app and restrict the trusted IP's to the one used by Azure Function. Azure AD Conditional Access requires a Premium P1 license to be assigned - More info here on [license requirements](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview#license-requirements).
+
+- Go to the [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Overview) for Conditional Access management
+- Select "Named location" and create a new IP range location
+- Provide a name (e.g. "Azure Function app Teams admin") and mark the location as trusted location
+- Enter all the IP addresses provided in the output of the deployment in step #2 (**outboundIpAddresses**) - Append a "/32" to each IP address
+- Click on Create
+- Go to Policies and then click on "Create new policy"
+- Provide a name to your policy
+- For the Assignments:
+  - Users or workload identities > **Include** "Select users and groups" > check "User and groups" > search for your Service Account > Select
+  - Cloud apps or actions > **Include** "All cloud apps"
+  - Conditions > Locations > **Exclude**  "Selected locations" > "Azure Function app Teams admin" (created earlier)
+- For the Access Controls:
+  - Grant > Block access
+- Enable policy
+- Save to confirm and apply the changes
+
+<p align="center">
+    <img src="./Media/AzureAD-CA-config.png" alt="AzureAD Conditional Access setup" width="400"/>
+</p>
+
+Note: please go back to your Power App and check that the application still responds - You can also try to use the Service Principal credential from your local desktop and verity you can't login anymore.
+
+**Step 6** - Activate Azure AD auth on Azure Function
+
+The next steps will guide you to activate Azure AD authentication between the Power Automate flows and the Azure Function endpoint using a service principal (Azure Ad app registration)
+
+
+
+
 
 ## Costs
 (only provided as an example, as of December-2021 public prices)
 
-[TO BE COMPLTED] Required licenses and costs estimates
+>[TO BE COMPLETED] 
 
 ## Contributing
 

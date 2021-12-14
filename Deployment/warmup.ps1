@@ -1,18 +1,17 @@
 Param(
     [Parameter(Mandatory=$true,HelpMessage="You must enter function hostname with argument -hostname [host URI]")][string]$hostname,
     [Parameter(Mandatory=$true,HelpMessage="You must enter function code with argument -code [function code]")][string]$code,
-    [Parameter(Mandatory=$true,HelpMessage="You must enter function code with argument -UPN [UPN]")][string]$upn,
     [Parameter(Mandatory=$false)][int]$workers  = 3,
     [Parameter(Mandatory=$false)][int]$maxRetry = 3
 )
 
 Write-Host "Azure Function warm-up using API call"
-$echoUri = 'https://' + $hostname + '/api/Get-UserInfos?SearchString=' + $upn + '&code=' + $code
+$echoUri = 'https://' + $hostname + '/api/Get-CsTeamsCallingPolicy?code=' + $code
 Write-Host $echoUri
 
 function generateConfig ([string]$hostname,[string]$code,[string]$UPN,[int]$workers) {
     $config = @()
-    $uri = $hostname + '/api/Get-UserInfos' + '?SearchString=' + $UPN + '&code=' + $code
+    $uri = 'https://' + $hostname + '/api/Get-CsTeamsCallingPolicy?code=' + $code
     for($i = 0; $i -lt $workers; $i++){ 
         $config += New-Object -TypeName psobject -Property @{ID= $i+1; URI= $uri}
     }  
