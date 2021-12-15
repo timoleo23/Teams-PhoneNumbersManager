@@ -14,6 +14,7 @@ __azurite_db*__.json
 .vscode
 Deployment/GitDeploy/deploy.ps1
 parameters-local.json
+*.bkp
 
 # PowerShell Gallery Modules
 Modules/AzureAD

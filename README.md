@@ -12,11 +12,6 @@ As of today, this application supports the following scenarios:
 - Assign / unassign voice policies to a user
 - only Calling Plans (aka PSTN) configuration is supported - Direct Routing is our of scope
 
-This application is a Power Apps deployed into Microsoft Teams. The pre-requisites to deploy the solution are :
-- Power Platform licenses (per user / per app) to use Premium connectors
-- An Azure Subscription to deploy the required Azure services 
-- One Azure AD Premium (P1) license to protect the Service (admin) Account
-
 The architecture of this solution can be adapted to support other scenarios taht require delegated admin management of Teams phone system or any other feature accessible via PowerShell cmdlet or even MS Graph API. 
 
 Here is a screenshot of the application
@@ -53,6 +48,8 @@ Here is a screenshot of the application
 - Azure Subscription and account with contributor role (to deploy resources)
 - Power App license to deploy the application and Power Automate flows
 
+To enable the connection to Azure KeyVault from the Power App, the user account logged on the Power App needs to have the minimum role of "Reader" on the Key Vault.  
+
 **Step 1** - Create a Service Account in Azure AD
 
 - Go to the [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) to manage users - Note: you need to have the appropriate permissions in Azure AD to create a new user.
@@ -81,12 +78,12 @@ The Azure Functions that run the PowerShell cmdlets are deployed on a dedicated 
 It takes several minutes for the PowerShell function apps to install the required module - You can use the [script](.\Deployment\warmup.ps1) provided in this repository to warm-up the Azure Function. Here is how to call this script:
 ```PowerShell
 $hostname = [Azure_Function_Hostname]
-$code = [Azure_Function_Code]
+$code     = [Azure_Function_Code]
+$tenantID = [Azure AD tenantID]
+$clientID = [Azure AD application ID (aka client ID)]
+$secret   = [Azure AD application secret]
 
-.\Deployment\warmup.ps1 -hostname $hostname -code $code
-
-# example
-# .\warmup.ps1 -hostname 'teams-phone-admin.azurewebsites.net' -code 'T8k9WlXXXXXigEt6XLIvkw=='
+.\Deployment\warmup.ps1 -hostname $hostname -code $code -tenantID $tenantID -clientID $clientID -secret $secret 
 ```
 
 A successful warmup should look like that (by default, the script runs 3 times)
