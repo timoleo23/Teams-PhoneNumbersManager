@@ -76,8 +76,9 @@ $parameters = @{
 
 $outputs = New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile $base\ZipDeploy\azuredeploy.json -TemplateParameterObject $parameters -Name $deploymentName -ErrorAction SilentlyContinue
 If ($outputs.provisioningState -ne 'Succeeded') {
-    Write-Error "ARM deployment failed with error:"
-    $outputs.error
+    Write-Error "ARM deployment failed with error"
+    Write-Error "Please retry deployment"
+    $outputs
     return
 }
 write-host -ForegroundColor blue "ARM template deployed successfully"
@@ -121,5 +122,15 @@ write-host -ForegroundColor blue "Warming-up Azure Function apps - This will tak
 
 write-host -ForegroundColor blue "Deployment script terminated"
 
-write-host -ForegroundColor magenta "Here is the list of IP addresses used by Azure Function to configure Azure AD Conditional Access"
-$outputs.Outputs.outboundIpAddresses.Value
+# Generating outputs
+$outputsData = New-Object -TypeName psobject -Property @{
+    AzFunctionURL = 'https://'+ $outputs.Outputs.azFuncHostName.Value
+    AzFunctionIPs = $outputs.Outputs.outboundIpAddresses.Value
+    tenantID      = $tenantID
+    clientID      = $clientID
+    audience      = 'api://azfunc-' + $clientID
+}
+
+write-host -ForegroundColor magenta "Here are the information you'll need to deploy and configure the Power Application"
+$outputsData
+
