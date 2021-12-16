@@ -15,7 +15,7 @@ Import-Module AzureAD -UseWindowsPowerShell            # Required to register th
 Import-Module Az.Accounts, Az.Resources, Az.KeyVault   # Required to deploy the Azure resource
 
 # Connect to AzureAD and Azure using modern authentication
-write-host -ForegroundColor blue "Azure sign-in request - Pleasecheck the sign-in window opened in your web browser"
+write-host -ForegroundColor blue "Azure sign-in request - Please check the sign-in window opened in your web browser"
 Connect-AzAccount
 
 # Auto-connect to AzureAD using Azure connection context
@@ -24,7 +24,11 @@ $aadToken = [Microsoft.Azure.Commands.Common.Authentication.AzureSession]::Insta
 Connect-AzureAD -AadAccessToken $aadToken -AccountId $context.Account.Id -TenantId $context.tenant.id
 
 write-host -ForegroundColor blue "Checking if app '$displayName' is already registered"
-$AAdapp = Get-AzureADApplication -SearchString $displayName
+$AAdapp = Get-AzureADApplication -Filter "DisplayName eq '$displayName'"
+If ($AAdapp.Count -gt 1) {
+    Write-Error "Multiple Azure AD app registered under the name '$displayName' - Please use another name and retry"
+    return
+}
 If([string]::IsNullOrEmpty($AAdapp)){
     write-host -ForegroundColor blue "Register a new app in Azure AD using Azure Function app name"
     $AADapp = New-AzureADApplication -DisplayName $displayName -AvailableToOtherTenants $false

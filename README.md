@@ -82,7 +82,7 @@ $location             = 'westeurope' (default value)
 $serviceAccountUPN    = [UPN of the Service Account created in step 1]
 $serviceAccountSecret = [Password of the Service Account created in step 1]    
 
-.\deploy.ps1 -serviceAccountUPN $AdminAccountLogin -serviceAccountSecret $AdminAccountPassword
+.\deploy.ps1 -serviceAccountUPN $serviceAccountUPN -serviceAccountSecret $serviceAccountSecret
 ```
 
 The deployment can take several minutes, including the warm-up time of the Azure Functions - At the end of the deployment, check the outputs that will be required to configure the deployment of the Power App and Azure AD Conditional Access 
