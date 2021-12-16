@@ -27,7 +27,13 @@
             "metadata": {
                 "description": "AzureAD application ID - aka clientID"
             }
-        },                     
+        },  
+        "appSecret": {
+            "type": "string",
+            "metadata": {
+                "description": "AzureAD application secret - To be stored in Azure KeyVault"
+            }
+        },                          
         "packageURI": {
             "type": "string",
             "metadata": {
@@ -227,6 +233,21 @@
                     ],
                     "properties": {
                         "value": "[parameters('serviceAccountSecret')]",
+                        "contentType": "text/plain",
+                        "attributes": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "type": "Microsoft.KeyVault/vaults/secrets",
+                    "name": "[concat(variables('keyVaultName'), '/Teams-Telephony-Manager-appSecret')]",
+                    "apiVersion": "2021-04-01-preview",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]"
+                    ],
+                    "properties": {
+                        "value": "[parameters('appSecret')]",
                         "contentType": "text/plain",
                         "attributes": {
                             "enabled": true

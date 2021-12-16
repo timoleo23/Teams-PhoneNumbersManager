@@ -13,7 +13,10 @@
         },      
         "clientID": {
             "value": "XXXXXXXXXX"
-        },                  
+        },      
+        "appSecret": {
+            "value": "XXXXXXXXXX"
+        },                   
         "packageURI" : {
             "value": "https://github.com/timoleo23/Teams-PhoneNumbersManager/blob/main/Packages/Azure/artifact.zip?raw=true"
         }

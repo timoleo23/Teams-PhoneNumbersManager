@@ -9,7 +9,7 @@ Param(
 )
 
 Write-Host "Azure Function warm-up using API call"
-$echoUri = 'https://' + $hostname + '/api/Get-CsTeamsCallingPolicy?code=' + $code
+$echoUri = 'https://' + $hostname + '/api/Get-CsTeamsCallingPolicy'
 Write-Host $echoUri
 
 # Check if parameter to use OAuth are provided
@@ -64,7 +64,14 @@ Do
     $job = generateConfig $hostname $code $workers $securedToken | ForEach-Object -ThrottleLimit $workers -Parallel { 
         $timeout = 180
         $start = Get-Date
-        $Result = Invoke-WebRequest -URI $_.URI -Method 'Get' -TimeoutSec $timeout -MaximumRetryCount 1 -Authentication OAuth -Token $_.token
+        Try {
+            $Result = Invoke-WebRequest -URI $_.URI -Method 'Get' -TimeoutSec $timeout -MaximumRetryCount 1 -Authentication OAuth -Token $_.token
+        }
+        Catch {
+            If ($_.Exception.Message -notlike '*HttpClient.Timeout*') {
+                $_.Exception.Message
+            }
+        }   
         $finish = Get-Date
         $duration = ($finish - $start).TotalSeconds
         $Resp = New-Object -TypeName psobject -Property @{Duration= [Math]::Round($duration,2); StatusCode= $Result.StatusCode; StatusDescription= If($duration -gt $timeout) {"Request timed out ($timeout sec)"} Else {$Result.StatusDescription};TriggerTime= (Get-Date -DisplayHint Time);WorkerId=$_.ID}
@@ -77,8 +84,8 @@ Do
     If ($test -EQ $FALSE) {
         Write-Host "Results - Attempt #" ($retries+1)
         $jobresult | Sort-Object TriggerTime | Format-Table TriggerTime,WorkerId,Duration,StatusCode,StatusDescription
-        Write-Host "Sleeping for 30s before retrying"
-        Start-Sleep -Seconds 30
+        Write-Host "Sleeping for 5 min before retrying"
+        Start-Sleep -Seconds 300
     }
 
     $job | Remove-Job
