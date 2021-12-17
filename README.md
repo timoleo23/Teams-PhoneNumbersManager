@@ -16,11 +16,9 @@ The architecture of this solution can be adapted to support other scenarios taht
 
 Here is a screenshot of the application
 
-![Microsoft Teams Phone System Admin screenshot](./Media/Teams-Phone-System-Admin.png)
-
-<!-- <p align="center">
+<p align="center">
     <img src="./Media/Teams-Phone-System-Admin.png" alt="Microsoft Teams Phone System Admin screenshot" width="600"/>
-</p> -->
+</p>
 
 
 ## Solution overview
@@ -29,7 +27,10 @@ Here is a screenshot of the application
 
 <br>
 
-![Solution high Level Design](./Media/High-Level-Design.png)
+<p align="center">
+    <img src="./Media/High-Level-Design.png" alt="Solution high Level Design" width="600"/>
+</p>
+
 1. Users (central and local admins) access the application directly from Microsoft Teams - They are all members of an Office 365 Group with Central admins being the owners of the team and Local admin are members. **Only Central admin can manage Local admin permissions**.
 2. The user-interface is provided by a Power Apps. **The Power Apps is only accessbile to the members of the O365 Group**.
 3. Local app settings are stored in a SharePoint List - This list is only accessible to Central admins for right access - For each local admin, a list of country codes for delegated permissions is set (e.g. "US" / "FR" / "UK") - A Local admin can only manage users that have the "Usage Location" in Azure AD set to the their delegated country codes and can only manage telephone numbers with a matching "CityCode".
@@ -108,10 +109,12 @@ AzFunctionIPs : '104.45.68.78,104.45.69.84,104.45.69.210,104.45.69.232,104.45.66
 
 **Step 3** - Deploy the Power App and flows
 
->**[ADD INSTRUCTIONS FOR POWER APP & FLOW HERE]**
+You can download the instruction to deploy the Power App in this [link](.\Media\Phone-System-Admin-app-Power-Platform-deployment-guide.pdf).
+
+The ZIP file mentionned in the document is available on this [link](.\Packages\PowerApps\PhoneSystemSolution_1_0_1_2.zip).
 
 
-At the end of this step, the solution should work end-to-end - The next-steps are recommended but optional and are here to add more security into the solution using Azure AD authentication & controls.
+>At the end of this step, the solution should work end-to-end - The next-steps are recommended but optional and are here to add more security into the solution using Azure AD authentication & controls.
 
 **Step 4** - Activate Azure AD Conditional Access
 
