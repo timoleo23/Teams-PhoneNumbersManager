@@ -62,7 +62,8 @@ Role required: Azure AD admin
 
 - Go under "assigned roles" and assign the following roles :
   - Directory readers - to read the user profiles
-  - Teams communications administration - to manage the Teams telephony system  
+  - Teams communications administration - to manage the Teams telephony system
+  - Skype for Business Administrator - to manage the dialout policies 
 
 **Step 2** - Deploy the Azure resources
 
