@@ -14,7 +14,7 @@ As of today, this application supports the following scenarios:
 
 The architecture of this solution can be adapted to support other scenarios taht require delegated admin management of Teams phone system or any other feature accessible via PowerShell cmdlet or even MS Graph API. 
 
-Here is a screenshot of the application
+Here is the application running in Microsoft Teams
 
 <p align="center">
     <img src="./Media/Teams-Phone-System-Admin.png" alt="Microsoft Teams Phone System Admin screenshot" width="600"/>
