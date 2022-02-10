@@ -43,9 +43,17 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         # Get user general infos from Teams Communication Services
-        $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property objectID,DisplayName,UserPrincipalName,UsageLocation,LineURI,EnterpriseVoiceEnabled,HostedVoiceMail,VoicePolicy,TeamsCallingPolicy,OnlineDialOutPolicy
+        $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property objectID, DisplayName, UserPrincipalName, UsageLocation, LineURI, EnterpriseVoiceEnabled, HostedVoiceMail, `
+            @{Name='VoicePolicy'; Expression = {if ($null -ne $_.VoicePolicy.Name) { $_.VoicePolicy.Name } else { $_.VoicePolicy }}}, `
+            @{Name='TeamsCallingPolicy'; Expression = {if ($null -ne $_.TeamsCallingPolicy.Name) { $_.TeamsCallingPolicy.Name } else { $_.TeamsCallingPolicy }}}, `
+            @{Name='OnlineDialOutPolicy'; Expression = {if ($null -ne $_.OnlineDialOutPolicy.Name) { $_.OnlineDialOutPolicy.Name } else { $_.OnlineDialOutPolicy }}}
+
+        Write-Host $userInfos
+
         Write-Host "User profile info collected."
+        ##################################################################################################################################
         # Get user assigned licenced for PSTN calling from AzureAD
+        ##################################################################################################################################
         # $CallingPlan = Get-AzureADUserLicenseDetail -ObjectId $userInfos.objectID | Where-Object { $_.SkuPartNumber -like "MCOPSTN*"} | Select-Object SkuPartNumber
         # Write-Host "User calling plan sku collected."
         # if (-not([string]::IsNullOrEmpty($CallingPlan))) {

@@ -29,14 +29,14 @@ Else {
     }
     else {
         # Set the function variables
-        Write-Host 'Inputs validated'
         $Id = $Request.Body.Identity
         if([string]::IsNullOrEmpty($Request.Body.TelephoneNumber)) {
-            $telNumber = $null
+            Write-Host "No telephone number detected in request body" $telNumber
         } Else {
             $telNumber = $Request.Body.TelephoneNumber
+            Write-Host "Telephone number detected in request body:" $telNumber
         }
-        # $LocId = $Request.Body.LocationID
+        Write-Host 'Inputs validated'
     }    
 }
 
@@ -62,16 +62,19 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
 # Assign Number to user
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
-        # If (-Not([string]::IsNullOrEmpty($LocId))){
-        #     $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -LocationID $LocId -ErrorAction:Stop
-        # }
-        # Else {
-            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -ErrorAction:Stop
-        # }    
+        If (-Not([string]::IsNullOrEmpty($telNumber))){
+            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -ErrorAction "Stop"
+            Write-Host 'Telephone Number' $telNumber 'assigned to ' $Id
+        }
+        Else {
+            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $null -ErrorAction "Stop"
+            Write-Host 'Telephone Number unassigned from ' $Id
+        }    
     }
     Catch {
         $Resp = @{ "Error" = $_.Exception.Message }
         $StatusCode =  [HttpStatusCode]::BadGateway
+        Write-Host "Error"
         Write-Error $_
     }
 }

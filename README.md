@@ -48,6 +48,10 @@ Here is the application running in Microsoft Teams
 - Azure AD Premium P1 license to enable Azure AD Conditional Access
 - Azure Subscription and account with contributor role (to deploy resources)
 - Power App license to deploy the application and Power Automate flows
+- The folowwing PowerShell modules needs to be installed prior to the execution of the PShell script:
+   - Microsoft Teams - https://docs.microsoft.com/en-us/MicrosoftTeams/teams-powershell-install
+   - Azure Az - https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0
+   Note: both are running under PowerShell v7.2.1
 
 Note: in this deployment, we assume that the same user has the appropriate permissions to deploy the resources on Azure, Power Platform and Azure AD. This is however not mandatory and the deployment can be split across these different roles and responsabilities within the organization.
 
@@ -101,10 +105,12 @@ TriggerTime         WorkerId Duration StatusCode StatusDescription
 Deployment script terminated
 Here are the information you ll need to deploy and configure the Power Application
 
-AzFunctionURL : 'https://teams-nnjqs.azurewebsites.net'
-tenantID      : '153017a8-XXXX-XXXX-XXXX-463465842b89'
-clientID      : 'bad28fb5-XXXX-XXXX-XXXX-665886c2cbad'
-audience      : 'api://azfunc-bad28fb5-XXXX-XXXX-XXXX-665886c2cbad'
+API_URL       : 'https://teams-nnjqs.azurewebsites.net'
+API_Code      : 'pujmFZfGxwqGXXXdddxLs2xXXXg2cMLhAUUE2Q=='
+TenantID      : '153017a8-XXXX-XXXX-XXXX-463465842b89'
+ClientID      : 'bad28fb5-XXXX-XXXX-XXXX-665886c2cbad'
+Audience      : 'api://azfunc-bad28fb5-XXXX-XXXX-XXXX-665886c2cbad'
+KeyVault_Name : 'az-vault-6cdgs'
 AzFunctionIPs : '104.45.68.78,104.45.69.84,104.45.69.210,104.45.69.232,104.45.66.240,104.45.70.42,20.50.2.80'
 ```
 
@@ -143,11 +149,22 @@ You can enable Azure Conditional Access on the Service Account used by your Azur
 
 Note: please go back to your Power App and check that the application still responds - You can also try to use the Service Principal credential from your local desktop and verity you can't login anymore.
 
+**Step 5** - Share the application
 
-## Costs
-(only provided as an example, as of December-2021 public prices)
+You now have the application deployed in Teams and you need to provide access to "delegated admins" in your organization. To achieve that, we'll use the Office 365 group of the team where the Power Apps has been deployed.
 
->[TO BE COMPLETED] 
+1. All "delegated admins" needs to be invited in the team to access the Power App
+2. Copy the name of the team where the app is installed - This is the name of your O365 group
+3. Go to the [Azure portal](https://portal.azure.com) and then to the Azure KeyVault deployed in this solution
+   - Select "Access policies > Add Access Policy 
+   - Under "Secret Permissions" select "GET" and "LIST"
+   - Click on "Select Principal" and enter the name of your O365 group and press "Select"
+   - Click "Add" to validate this policy
+   - Click "Save" to commit the new configuration
+4. Go to the [Power Apps portal](https://make.powerapps.com/) and then to your Power App to configure user's access
+   - **TO BE DETAILLED**
+5. The 1st your users will access the Power App in Teams, they will need to consent to use the 3 connectors (SharePoint, Office365 and Azure KeyVault) - For Azure KeyVault, they need to provide the KeyVault name that you get from the deployment of the Azure resources (e.g. az-vault-6cdgs)
+
 
 ## Contributing
 

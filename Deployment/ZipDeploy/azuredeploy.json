@@ -262,6 +262,10 @@
             "type": "string",
             "value": "[variables('functionAppName')]"
         },
+        "AzFuncAppCode": {
+            "type": "string",
+            "value": "[listkeys(concat(resourceId('Microsoft.Web/sites', variables('functionAppName')), '/host/default/'),'2016-08-01').masterKey]"
+        } ,
         "AzFuncHostName": {
             "type": "string",
             "value": "[reference(resourceId('Microsoft.Web/sites', variables('functionAppName')), '2021-03-01', 'Full').properties.defaultHostName]"

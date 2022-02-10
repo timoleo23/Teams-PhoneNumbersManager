@@ -11,7 +11,13 @@ $base = $PSScriptRoot
 Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
 
 # Import required PowerShell modules for the deployment
-Import-Module AzureAD -UseWindowsPowerShell            # Required to register the app in Azure AD
+If($PSVersionTable.PSVersion.Major -ne 7) { 
+    Write-Error "Please install and use PowerShell v7.2.1 to run this script"
+    Write-Error "Follow the instruction to install PowerShell on Windows here"
+    Write-Error "https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2"
+    return
+}
+Import-Module AzureAD -UseWindowsPowerShell        # Required to register the app in Azure AD using PowerShell 7.x
 Import-Module Az.Accounts, Az.Resources, Az.KeyVault   # Required to deploy the Azure resource
 
 # Connect to AzureAD and Azure using modern authentication
@@ -127,14 +133,15 @@ write-host -ForegroundColor blue "Warming-up Azure Function apps - This will tak
 write-host -ForegroundColor blue "Deployment script terminated"
 
 # Generating outputs
-$outputsData = New-Object -TypeName psobject -Property @{
-    AzFunctionURL = 'https://'+ $outputs.Outputs.azFuncHostName.Value
+$outputsData = [ordered]@{
+    API_URL       = 'https://'+ $outputs.Outputs.azFuncHostName.Value
+    API_Code      = $outputs.Outputs.AzFuncAppCode.Value
+    TenantID      = $tenantID
+    ClientID      = $clientID
+    Audience      = 'api://azfunc-' + $clientID
+    KeyVault_Name = $outputs.Outputs.AzKeyVaultName.Value
     AzFunctionIPs = $outputs.Outputs.outboundIpAddresses.Value
-    tenantID      = $tenantID
-    clientID      = $clientID
-    audience      = 'api://azfunc-' + $clientID
 }
 
 write-host -ForegroundColor magenta "Here are the information you'll need to deploy and configure the Power Application"
 $outputsData
-
