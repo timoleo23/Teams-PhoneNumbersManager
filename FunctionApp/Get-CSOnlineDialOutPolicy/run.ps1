@@ -15,15 +15,8 @@ $static = $Request.Query.static
 If ($static -eq 'true'){
 $DialoutPolicies = @'
 [
-      { "Identity": "Tag:DialoutCPCandPSTNInternational"      , "DisplayName": "AudioConf : any dest.     | User PSTN : any dest."     },
-      { "Identity": "Tag:DialoutCPCInternationalPSTNDomestic" , "DisplayName": "AudioConf : any dest.     | User PSTN : domestic only"},
-      { "Identity": "Tag:DialoutCPCInternationalPSTNDisabled" , "DisplayName": "AudioConf : any dest.     | User PSTN : don't allow"},
-      { "Identity": "Tag:DialoutCPCDomesticPSTNInternational" , "DisplayName": "AudioConf : domestic only | User PSTN : any dest."},
-      { "Identity": "Tag:DialoutCPCandPSTNDomestic"           , "DisplayName": "AudioConf : domestic only | User PSTN : domestic only"},
-      { "Identity": "Tag:DialoutCPCDomesticPSTNDisabled"      , "DisplayName": "AudioConf : domestic only | User PSTN : don't allow"},
-      { "Identity": "Tag:DialoutCPCDisabledPSTNInternational" , "DisplayName": "AudioConf : don't allow   | User PSTN : any dest." },
-      { "Identity": "Tag:DialoutCPCDisabledPSTNDomestic"      , "DisplayName": "AudioConf : don't allow   | User PSTN : domestic only"},
-      { "Identity": "Tag:DialoutCPCandPSTNDisabled"           , "DisplayName": "AudioConf : don't allow   | User PSTN : don't allow"  }
+      { "Identity": "Tag:DialoutCPCDisabledPSTNInternational" , "DisplayName": "Any destination" },
+      { "Identity": "Tag:DialoutCPCDisabledPSTNDomestic"      , "DisplayName": "In the same country or region as the organizer"},
 ]
 '@ 
 $Resp = $DialoutPolicies | ConvertFrom-Json | ConvertTo-Json
