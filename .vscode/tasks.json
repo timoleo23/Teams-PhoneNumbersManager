@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "func",
-			"command": "cd ./FunctionApp && func host start",
+			"command": "cd .\\FunctionApp && func host start",
 			"problemMatcher": "$func-powershell-watch",
 			"isBackground": true
 		}

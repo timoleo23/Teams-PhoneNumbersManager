@@ -22,7 +22,7 @@ $Account = $env:AdminAccountLogin
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
-$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.0.0\MicrosoftTeams.psd1"
+$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.1.1\MicrosoftTeams.psd1"
 Import-Module $MSTeamsDModuleLocation
 # $AzureADModuleLocation = ".\Modules\AzureAD\2.0.2.140\AzureAD.psd1"
 # Import-Module $AzureADModuleLocation -UseWindowsPowerShell
@@ -43,10 +43,11 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         # Get user general infos from Teams Communication Services
-        $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property objectID, DisplayName, UserPrincipalName, UsageLocation, LineURI, EnterpriseVoiceEnabled, HostedVoiceMail, `
-            @{Name='VoicePolicy'; Expression = {if ($null -ne $_.VoicePolicy.Name) { $_.VoicePolicy.Name } else { $_.VoicePolicy }}}, `
-            @{Name='TeamsCallingPolicy'; Expression = {if ($null -ne $_.TeamsCallingPolicy.Name) { $_.TeamsCallingPolicy.Name } else { $_.TeamsCallingPolicy }}}, `
-            @{Name='OnlineDialOutPolicy'; Expression = {if ($null -ne $_.OnlineDialOutPolicy.Name) { $_.OnlineDialOutPolicy.Name } else { $_.OnlineDialOutPolicy }}}
+        $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property DisplayName, UserPrincipalName, UsageLocation, LineURI, EnterpriseVoiceEnabled, HostedVoiceMail, `
+            @{Name='objectID'; Expression = {if ($null -ne $_.objectID) { $_.objectID } else { $_.Guid }}}, `
+            @{Name='VoicePolicy'; Expression = {if ($null -ne $_.VoicePolicy) { $_.VoicePolicy.Name } else { $_.VoicePolicy }}}, `
+            @{Name='TeamsCallingPolicy'; Expression = {if ($null -ne $_.TeamsCallingPolicy) { $_.TeamsCallingPolicy.Name } else { $_.TeamsCallingPolicy }}}, `
+            @{Name='OnlineDialOutPolicy'; Expression = {if ($null -ne $_.OnlineDialOutPolicy) { $_.OnlineDialOutPolicy.Name } else { $_.OnlineDialOutPolicy }}}
 
         Write-Host $userInfos
 

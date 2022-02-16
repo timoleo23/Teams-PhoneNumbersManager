@@ -25,5 +25,5 @@
 # $AzureADModuleLocation = ".\Modules\AzureAD\2.0.2.140\AzureAD.psd1"
 # Import-Module $AzureADModuleLocation -UseWindowsPowerShell
 
-$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.0.0\MicrosoftTeams.psd1"
+$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.1.1\MicrosoftTeams.psd1"
 Import-Module $MSTeamsDModuleLocation

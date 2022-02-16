@@ -9,7 +9,7 @@ if ($Timer.IsPastDue) {
     Write-Host "PowerShell timer is running late!"
 }
 
-$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.0.0\MicrosoftTeams.psd1"
+$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.1.1\MicrosoftTeams.psd1"
 Import-Module $MSTeamsDModuleLocation
 
 # $AzureADModuleLocation = ".\Modules\AzureAD\2.0.2.140\AzureAD.psd1"

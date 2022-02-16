@@ -18,5 +18,5 @@ parameters-local.json
 *.ppt*
 
 # PowerShell Gallery Modules
-Modules/AzureAD
-Modules/MicrosoftTeams
+FunctionApp/Modules/AzureAD/*
+FunctionApp/Modules/MicrosoftTeams/*
