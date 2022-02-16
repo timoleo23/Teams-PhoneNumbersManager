@@ -44,7 +44,7 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         # Get user general infos from Teams Communication Services
         $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property DisplayName, UserPrincipalName, UsageLocation, LineURI, EnterpriseVoiceEnabled, HostedVoiceMail, `
-            @{Name='objectID'; Expression = {if ($null -ne $_.objectID) { $_.objectID } else { $_.Guid }}}, `
+            @{Name='objectID'; Expression = {if ($null -ne $_.objectID) { $_.objectID } else { $_.Identity }}}, `
             @{Name='VoicePolicy'; Expression = {if ($null -ne $_.VoicePolicy) { $_.VoicePolicy.Name } else { $_.VoicePolicy }}}, `
             @{Name='TeamsCallingPolicy'; Expression = {if ($null -ne $_.TeamsCallingPolicy) { $_.TeamsCallingPolicy.Name } else { $_.TeamsCallingPolicy }}}, `
             @{Name='OnlineDialOutPolicy'; Expression = {if ($null -ne $_.OnlineDialOutPolicy) { $_.OnlineDialOutPolicy.Name } else { $_.OnlineDialOutPolicy }}}
