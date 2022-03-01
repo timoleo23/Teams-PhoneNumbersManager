@@ -28,7 +28,8 @@ Else {
     $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
     $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
-    Import-Module MicrosoftTeams
+    $MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.1.1\MicrosoftTeams.psd1"
+    Import-Module $MSTeamsDModuleLocation
 
     If ($StatusCode -eq [HttpStatusCode]::OK) {
         Try {
