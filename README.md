@@ -155,15 +155,22 @@ You now have the application deployed in Teams and you need to provide access to
 
 1. All "delegated admins" needs to be invited in the team to access the Power App
 2. Copy the name of the team where the app is installed - This is the name of your O365 group
-3. Go to the [Azure portal](https://portal.azure.com) and then to the Azure KeyVault deployed in this solution
+3. You need to enable your O365 group to be used as a security group - For that, go to [Azure AD groups management blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) to get your O365 group ID and use the following Powershell command to enable security on this group.
+   ```Powershell
+     Set-AzureADMSGroup -Id [Office365_Group_ID] -SecurityEnabled $true
+   ```
+
+4. Go to the [Azure portal](https://portal.azure.com) and then to the Azure KeyVault deployed in this solution
    - Select "Access policies > Add Access Policy 
    - Under "Secret Permissions" select "GET" and "LIST"
    - Click on "Select Principal" and enter the name of your O365 group and press "Select"
    - Click "Add" to validate this policy
    - Click "Save" to commit the new configuration
-4. Go to the [Power Apps portal](https://make.powerapps.com/) and then to your Power App to configure user's access
-   - **TO BE DETAILLED**
-5. The 1st your users will access the Power App in Teams, they will need to consent to use the 3 connectors (SharePoint, Office365 and Azure KeyVault) - For Azure KeyVault, they need to provide the KeyVault name that you get from the deployment of the Azure resources (e.g. az-vault-6cdgs)
+5. Go to the [Power Apps portal](https://make.powerapps.com/) and then select your Power Apps
+   - Select the option menu and then "Share" - More info [here](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/share-app)
+   - Search for the O365 team group that is security enabled
+   - Click on "Share" to confirm the new permission
+6. The 1st your users will access the Power App in Teams, they will need to consent to use the 3 connectors (SharePoint, Office365 and Azure KeyVault) - For Azure KeyVault, they need to provide the KeyVault name that you get from the deployment of the Azure resources (e.g. az-vault-6cdgs)
 
 
 ## Contributing
