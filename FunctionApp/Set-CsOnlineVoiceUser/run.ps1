@@ -65,7 +65,12 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
         If (-Not([string]::IsNullOrEmpty($telNumber))){
 #            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -ErrorAction "Stop"
             $Resp = Set-CsPhoneNumberAssignment -Identity $Id -PhoneNumber $telNumber -PhoneNumberType CallingPlan -ErrorAction "Stop"
-            Write-Host 'Telephone Number' $telNumber 'assigned to ' $Id
+            # Checking if $Resp contains an error message
+            If ($null -ne $Resp) {
+                $StatusCode =  [HttpStatusCode]::BadRequest
+            } Else {
+                Write-Host 'Telephone Number' $telNumber 'assigned to ' $Id
+            }
         }
         Else {
 #            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $null -ErrorAction "Stop"

@@ -39,6 +39,16 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
     }
 }
 
+function Get-DialPolicyDisplayName {
+    param($OnlineDialOutPolicy)
+    switch($OnlineDialOutPolicy){
+        "DialoutCPCDisabledPSTNInternational" { return "Any destination" }
+        "DialoutCPCDisabledPSTNDomestic"      { return "In the same country or region as the organizer"}
+        "DialoutCPCandPSTNDisabled"           { return "Not allowed"}
+        default { return $OnlineDialOutPolicy }
+    }
+}
+
 # Get User profile infos
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
@@ -48,7 +58,7 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
             @{Name='objectID'; Expression = {if ($null -ne $_.objectID) { $_.objectID } else { $_.Identity }}}, `
             @{Name='VoicePolicy'; Expression = {if ($null -ne $_.VoicePolicy) { $_.VoicePolicy.Name } else { $_.VoicePolicy }}}, `
             @{Name='TeamsCallingPolicy'; Expression = {if ($null -ne $_.TeamsCallingPolicy) { $_.TeamsCallingPolicy.Name } else { $_.TeamsCallingPolicy }}}, `
-            @{Name='OnlineDialOutPolicy'; Expression = {if ($null -ne $_.OnlineDialOutPolicy) { $_.OnlineDialOutPolicy.Name } else { $_.OnlineDialOutPolicy }}}
+            @{Name='OnlineDialOutPolicy'; Expression = {if ($null -ne $_.OnlineDialOutPolicy) { Get-DialPolicyDisplayName($_.OnlineDialOutPolicy.Name) } else { Get-DialPolicyDisplayName($_.OnlineDialOutPolicy) }}}
 
         Write-Host $userInfos
 
@@ -99,5 +109,6 @@ Trap {
     Write-Error $_
 #    Disconnect-AzureAD
     Disconnect-MicrosoftTeams
+    Get-PSSession | Remove-PSSession
     break
 }
