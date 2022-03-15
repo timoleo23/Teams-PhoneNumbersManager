@@ -173,6 +173,34 @@ You now have the application deployed in Teams and you need to provide access to
 6. The 1st your users will access the Power App in Teams, they will need to consent to use the 3 connectors (SharePoint, Office365 and Azure KeyVault) - For Azure KeyVault, they need to provide the KeyVault name that you get from the deployment of the Azure resources (e.g. az-vault-6cdgs)
 
 
+## Operations
+
+This solution is built on the Microsoft Power Platform (SaaS) and Microsoft Azure using PaaS services - The benefit of these services is that Microsoft is in charge of the infrastructure layer and this solution includes some level of logs to track changes and facilitate the troubleshooting as well. However, you're still responsible for the management of this application with the following recommendations:
+- Implement [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) and [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) to monitor the Azure services and application.
+- Subscribe to service updates an information for Office 365, Power Platform and Azure via the official channels including [Microsoft 365 Message Center](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/message-center) and [Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/overview)
+- Subscribe to [Microsoft Teams modules](https://www.powershellgallery.com/profiles/MicrosoftTeams/) updates in the PowerShell gallery - The solution has been designed and tested on version 3.1.1
+
+## Costs Estimates
+
+This is a costs estimates based on the public pricelist of March 2022.
+They do not include the costs for Office 365 & Microsoft Teams.
+
+**All prices are provided for information only.**
+
+| Service  | Estimated usage  | Unit price  | Estimated cost / month  |
+|---|---|---|---|
+| Power Platform  | 20 admins (Premium connector) | $5 per user/app/month  | $100  |
+| Azure App Service plan  | 1 plan (Basic B1) for all Azure functions | $54.75 per plan/month | $55  |
+| Azure (other services)  | storage and keyvault request  | based on capacity (GB) & # requests  | <$1  |
+| Azure AD CA | 1 P1 license | $6 peruser/month | $6 |
+| Total estimated ||| $162 |
+
+
+
+- [Power Apps pricing](https://powerapps.microsoft.com/en-us/pricing/)
+- [Azure Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+- [Azure AD pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory/)
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
@@ -198,4 +226,15 @@ Any use of third-party trademarks or logos are subject to those third-party's po
 
 ## Reference documentation
 
-XXX
+### Microsoft Teams admin 
+- [User provisioning end-state for various PSTN connectivity options](https://docs.microsoft.com/en-us/MicrosoftTeams/direct-routing-migrating#user-provisioning-end-state-for-various-pstn-connectivity-options)
+- [Product names and service plan identifiers for licensing](https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-service-plan-reference)
+- [See all telephone numbers in your organization](https://docs.microsoft.com/en-us/microsoftteams/see-a-list-of-phone-numbers-in-your-organization)
+- [Assign, change, or remove a phone number for a user](https://docs.microsoft.com/en-us/microsoftteams/assign-change-or-remove-a-phone-number-for-a-user)
+- [Outbound calling restriction policies for Audio Conferencing and user PSTN calls](https://docs.microsoft.com/en-us/microsoftteams/outbound-calling-restriction-policies)
+
+### Microsoft Teams PowerShell module
+- [PowerShell Gallery | MicrosoftTeams](https://www.powershellgallery.com/profiles/MicrosoftTeams/)
+
+### Azure
+- [Azure Functions PowerShell developer guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-powershell)
