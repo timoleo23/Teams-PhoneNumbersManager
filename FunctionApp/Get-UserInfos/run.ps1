@@ -54,11 +54,11 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         # Get user general infos from Teams Communication Services
         $userInfos = Get-CsOnlineUser $SearchString -ErrorAction:Stop | Select-Object -Property DisplayName, UserPrincipalName, UsageLocation, EnterpriseVoiceEnabled, HostedVoiceMail, `
-            @{Name='LineURI'; Expression = {if ($_.LineURI -like '+*') { $_.LineURI } else { '+' + $_.LineURI }}}, `
-            @{Name='objectID'; Expression = {if ($null -ne $_.objectID) { $_.objectID } else { $_.Identity }}}, `
-            @{Name='VoicePolicy'; Expression = {if ($null -ne $_.VoicePolicy) { $_.VoicePolicy.Name } else { $_.VoicePolicy }}}, `
-            @{Name='TeamsCallingPolicy'; Expression = {if ($null -ne $_.TeamsCallingPolicy) { $_.TeamsCallingPolicy.Name } else { $_.TeamsCallingPolicy }}}, `
-            @{Name='OnlineDialOutPolicy'; Expression = {if ($null -ne $_.OnlineDialOutPolicy) { Get-DialPolicyDisplayName($_.OnlineDialOutPolicy.Name) } else { Get-DialPolicyDisplayName($_.OnlineDialOutPolicy) }}}
+                @{Name='LineURI'; Expression = {if ($_.LineURI -like '*+*') { $_.LineURI } else { '+' + $_.LineURI }}}, `
+                @{Name='objectID'; Expression = {if ($null -ne $_.objectID) { $_.objectID } else { $_.Identity }}}, `
+                @{Name='VoicePolicy'; Expression = {if ($_.VoicePolicy.getType().Name -eq 'UserPolicyDefinition') { $_.VoicePolicy.Name } else { $_.VoicePolicy }}}, `
+                @{Name='TeamsCallingPolicy'; Expression = {if ($_.TeamsCallingPolicy.getType().Name -eq 'UserPolicyDefinition') { $_.TeamsCallingPolicy.Name } else { $_.TeamsCallingPolicy }}}, `
+                @{Name='OnlineDialOutPolicy'; Expression = {if ($_.OnlineDialOutPolicy.getType().Name -eq 'UserPolicyDefinition') { $_.OnlineDialOutPolicy.Name } else { $_.OnlineDialOutPolicy }}}
 
         Write-Host $userInfos
 
