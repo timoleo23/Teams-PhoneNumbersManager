@@ -19,10 +19,11 @@ The architecture of this solution can be adapted to support other scenarios that
 
 Here is the application running in Microsoft Teams
 
-<p align="center">
+<!-- <p align="center">
     <img src="./Media/Teams-Phone-System-Admin.png" alt="Microsoft Teams Phone System Admin screenshot" width="600"/>
-</p>
+</p> -->
 
+![Microsoft Teams Phone System Admin screenshot](./Media/Teams-Phone-System-Admin.png)
 
 ## Solution overview
 
@@ -30,9 +31,11 @@ Here is the application running in Microsoft Teams
 
 <br>
 
-<p align="center">
+<!-- <p align="center">
     <img src="./Media/High-Level-Design.png" alt="Solution high Level Design" width="600"/>
-</p>
+</p> -->
+
+![Solution high Level Design](./Media/High-Level-Design.png)
 
 1. Users (central and local admins) access the application directly from Microsoft Teams - They are all members of an Office 365 Group with Central admins being the owners of the team and Local (aka delegated) admins are members. **Only Central admin can manage Local admin permissions**.
 2. The user-interface is provided by a Power Apps. **The Power Apps is only accessbile to the members of the O365 Group**.
