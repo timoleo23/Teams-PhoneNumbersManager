@@ -18,7 +18,7 @@ $Account = $env:AdminAccountLogin
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
-$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.1.1\MicrosoftTeams.psd1"
+$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\4.0.0\MicrosoftTeams.psd1"
 Import-Module $MSTeamsDModuleLocation
 
 If ($StatusCode -eq [HttpStatusCode]::OK) {
@@ -36,10 +36,11 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         If ([string]::IsNullOrEmpty($Location)){
-            $Resp = Get-CsOnlineLisLocation | Select-Object LocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
+            $Resp = Get-CsOnlineLisLocation -ErrorAction "Stop" | Select-Object LocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
         }
         Else {
-            $Resp = Get-CsOnlineLisLocation -CountryOrRegion $Location | Select-Object LocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
+            Write-Host $Location
+            $Resp = Get-CsOnlineLisLocation -CountryOrRegion $Location -ErrorAction "Stop" | Select-Object LocationId,Description,CountryOrRegion,City,Latitude,Longitude | ConvertTo-Json
         }
     }
     Catch {

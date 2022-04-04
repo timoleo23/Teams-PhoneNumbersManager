@@ -31,11 +31,17 @@ Else {
         # Set the function variables
         $Id = $Request.Body.Identity
         if([string]::IsNullOrEmpty($Request.Body.TelephoneNumber)) {
-            Write-Host "No telephone number detected in request body" $telNumber
+            Write-Host "No telephone number detected in request body"
         } Else {
             $telNumber = $Request.Body.TelephoneNumber
             Write-Host "Telephone number detected in request body:" $telNumber
         }
+        if([string]::IsNullOrEmpty($Request.Body.LocationID)) {
+            Write-Host "No location ID detected in request body"
+        } Else {
+            $locationID = $Request.Body.LocationID
+            Write-Host "Location ID detected in request body:" $locationID
+        }        
         Write-Host 'Inputs validated'
     }    
 }
@@ -45,7 +51,7 @@ $Account = $env:AdminAccountLogin
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
-$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.1.1\MicrosoftTeams.psd1"
+$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\4.0.0\MicrosoftTeams.psd1"
 Import-Module $MSTeamsDModuleLocation
 
 If ($StatusCode -eq [HttpStatusCode]::OK) {
@@ -63,8 +69,11 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
 If ($StatusCode -eq [HttpStatusCode]::OK) {
     Try {
         If (-Not([string]::IsNullOrEmpty($telNumber))){
-#            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $telNumber -ErrorAction "Stop"
-            $Resp = Set-CsPhoneNumberAssignment -Identity $Id -PhoneNumber $telNumber -PhoneNumberType CallingPlan -ErrorAction "Stop"
+            If (-Not([string]::IsNullOrEmpty($locationID))){
+                $Resp = Set-CsPhoneNumberAssignment -Identity $Id -PhoneNumber $telNumber -LocationId $locationID -PhoneNumberType CallingPlan -ErrorAction "Stop"
+            } Else {
+                $Resp = Set-CsPhoneNumberAssignment -Identity $Id -PhoneNumber $telNumber -PhoneNumberType CallingPlan -ErrorAction "Stop"
+            }
             # Checking if $Resp contains an error message
             If ($null -ne $Resp) {
                 $StatusCode =  [HttpStatusCode]::BadRequest
@@ -73,7 +82,6 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
             }
         }
         Else {
-#            $Resp = Set-CsOnlineVoiceUser -Identity $Id -TelephoneNumber $null -ErrorAction "Stop"
             $Resp = Remove-CsPhoneNumberAssignment -Identity $Id -RemoveAll -ErrorAction "Stop"
             Write-Host 'Telephone Number unassigned from ' $Id
         }    

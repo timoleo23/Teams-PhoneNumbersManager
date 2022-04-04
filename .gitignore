@@ -16,6 +16,7 @@ Deployment/GitDeploy/deploy.ps1
 parameters-local.json
 *.bkp
 *.ppt*
+*.doc*
 
 # PowerShell Gallery Modules
 FunctionApp/Modules/AzureAD/*

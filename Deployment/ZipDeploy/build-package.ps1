@@ -1,12 +1,14 @@
 # Use this script if you need to generate a new ZIP package
 
 # Make sure you update and save the MicrosofttTeams module as Azure Function custom modules
-save-module -Path .\FunctionApp\Modules -Name MicrosoftTeams -Repository PSGallery -MinimumVersion 3.1.1
+save-module -Path .\FunctionApp\Modules -Name MicrosoftTeams -Repository PSGallery -MinimumVersion 4.0.0
 
 # List in the ZIP package all the function app you need to deploy
 $packageFiles = @(
     ".\FunctionApp\Get-CSOnlineDialOutPolicy"
+    ".\FunctionApp\Get-CsOnlineLisLocation"
     ".\FunctionApp\Get-CsOnlineTelephoneNumber",
+    ".\FunctionApp\Get-CsOnlineTelNumLocDetails",
     ".\FunctionApp\Get-CsTeamsCallingPolicy",
     ".\FunctionApp\Get-UserInfos",
     ".\FunctionApp\Grant-CsDialoutPolicy", 

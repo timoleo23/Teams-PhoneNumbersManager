@@ -9,10 +9,13 @@ While this model works well well operations are managed centrally, it becomes mo
 
 As of today, this application supports the following scenarios:
 - Assign / Unassign PTSN numbers to a user
+- Assing / update the Emergency location
 - Assign / unassign voice policies to a user
-- only Calling Plans (aka PSTN) configuration is supported - Direct Routing is our of scope
+- Assign / unassign calling policies to a user
 
-The architecture of this solution can be adapted to support other scenarios taht require delegated admin management of Teams phone system or any other feature accessible via PowerShell cmdlet or even MS Graph API. 
+Note: the solution only supports Calling Plans (aka PSTN) configuration  - Direct Routing is our of scope but the solution can be updated to support this scenario with minimum efforts using the appropriate PowerShell cmdlet.
+
+The architecture of this solution can be adapted to support other scenarios that require delegated admin management of Teams phone system or any other feature accessible via PowerShell cmdlet or even MS Graph API. 
 
 Here is the application running in Microsoft Teams
 
@@ -31,9 +34,9 @@ Here is the application running in Microsoft Teams
     <img src="./Media/High-Level-Design.png" alt="Solution high Level Design" width="600"/>
 </p>
 
-1. Users (central and local admins) access the application directly from Microsoft Teams - They are all members of an Office 365 Group with Central admins being the owners of the team and Local admin are members. **Only Central admin can manage Local admin permissions**.
+1. Users (central and local admins) access the application directly from Microsoft Teams - They are all members of an Office 365 Group with Central admins being the owners of the team and Local (aka delegated) admins are members. **Only Central admin can manage Local admin permissions**.
 2. The user-interface is provided by a Power Apps. **The Power Apps is only accessbile to the members of the O365 Group**.
-3. Local app settings are stored in a SharePoint List - This list is only accessible to Central admins for right access - For each local admin, a list of country codes for delegated permissions is set (e.g. "US" / "FR" / "UK") - A Local admin can only manage users that have the "Usage Location" in Azure AD set to the their delegated country codes and can only manage telephone numbers with a matching "CityCode".
+3. Local app settings are stored in a SharePoint List - This list is only accessible to Central admins - For each local admin, a list of country codes for delegated permissions is set (e.g. "US" / "FR" / "UK") - A Local admin can only manage users that have the "Usage Location" in Azure AD set to the their delegated country codes and can only manage telephone numbers with a matching "CityCode".
 4. Actions validated on the Power Apps trigger a Power Automate flow - The role of the flow (one per API) is to **secure and log** all queries sent to the Teams Admin Center API's.
 5. Azure KeyVault is used to securely store the secret and credentials required by the solution. With this design, secrets & credentials management of the "service account" and of the "service principal" can be delegated to a third party that is not an admin of the Team Telephony solution. 
 6. Power Automate calls the Azure Function API providing the appropriate credentials.
@@ -48,10 +51,9 @@ Here is the application running in Microsoft Teams
 - Azure AD Premium P1 license to enable Azure AD Conditional Access
 - Azure Subscription and account with contributor role (to deploy resources)
 - Power App license to deploy the application and Power Automate flows
-- The folowwing PowerShell modules needs to be installed prior to the execution of the PShell script:
-   - Microsoft Teams - https://docs.microsoft.com/en-us/MicrosoftTeams/teams-powershell-install
-   - Azure Az - https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0
-   Note: both are running under PowerShell v7.2.1
+- The following PowerShell modules needs to be installed prior to the execution of the PShell script:
+   - Microsoft Teams - https://docs.microsoft.com/en-us/MicrosoftTeams/teams-powershell-install - Solution built and tested with v4.0.0
+   - Azure Az - https://docs.microsoft.com/en-us/powershell/azure/install-az-ps - Solution built and tested with v7.3.2
 
 Note: in this deployment, we assume that the same user has the appropriate permissions to deploy the resources on Azure, Power Platform and Azure AD. This is however not mandatory and the deployment can be split across these different roles and responsabilities within the organization.
 
@@ -178,7 +180,7 @@ You now have the application deployed in Teams and you need to provide access to
 This solution is built on the Microsoft Power Platform (SaaS) and Microsoft Azure using PaaS services - The benefit of these services is that Microsoft is in charge of the infrastructure layer and this solution includes some level of logs to track changes and facilitate the troubleshooting as well. However, you're still responsible for the management of this application with the following recommendations:
 - Implement [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) and [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) to monitor the Azure services and application.
 - Subscribe to service updates an information for Office 365, Power Platform and Azure via the official channels including [Microsoft 365 Message Center](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/message-center) and [Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/overview)
-- Subscribe to [Microsoft Teams modules](https://www.powershellgallery.com/profiles/MicrosoftTeams/) updates in the PowerShell gallery - The solution has been designed and tested on version 3.1.1
+- Subscribe to [Microsoft Teams modules](https://www.powershellgallery.com/profiles/MicrosoftTeams/) updates in the PowerShell gallery
 
 ## Costs Estimates
 

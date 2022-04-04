@@ -2,7 +2,3 @@
 .vscode
 *.md
 local.settings.json
-
-# Excluded (for future use)
-Get-CsOnlineLisLocation
-Get-CsOnlineTelNumLocDetails

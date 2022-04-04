@@ -22,7 +22,7 @@ $Account = $env:AdminAccountLogin
 $PWord = ConvertTo-SecureString -String $env:AdminAccountPassword -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Account, $PWord
 
-$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\3.1.1\MicrosoftTeams.psd1"
+$MSTeamsDModuleLocation = ".\Modules\MicrosoftTeams\4.0.0\MicrosoftTeams.psd1"
 Import-Module $MSTeamsDModuleLocation
 # $AzureADModuleLocation = ".\Modules\AzureAD\2.0.2.140\AzureAD.psd1"
 # Import-Module $AzureADModuleLocation -UseWindowsPowerShell
@@ -58,8 +58,9 @@ If ($StatusCode -eq [HttpStatusCode]::OK) {
                 @{Name='objectID'; Expression = {if ($null -ne $_.objectID) { $_.objectID } else { $_.Identity }}}, `
                 @{Name='VoicePolicy'; Expression = {if ($_.VoicePolicy.getType().Name -eq 'UserPolicyDefinition') { $_.VoicePolicy.Name } else { $_.VoicePolicy }}}, `
                 @{Name='TeamsCallingPolicy'; Expression = {if ($_.TeamsCallingPolicy.getType().Name -eq 'UserPolicyDefinition') { $_.TeamsCallingPolicy.Name } else { $_.TeamsCallingPolicy }}}, `
-                @{Name='OnlineDialOutPolicy'; Expression = {if ($_.OnlineDialOutPolicy.getType().Name -eq 'UserPolicyDefinition') { $_.OnlineDialOutPolicy.Name } else { $_.OnlineDialOutPolicy }}}
-
+                @{Name='OnlineDialOutPolicy'; Expression = {if ($_.OnlineDialOutPolicy.getType().Name -eq 'UserPolicyDefinition') { $_.OnlineDialOutPolicy.Name } else { $_.OnlineDialOutPolicy }}}, `
+                @{Name='UserLocation'; Expression = { $_ | Select-Object StateOrProvince,City,Street,PostalCode } }
+       
         Write-Host $userInfos
 
         Write-Host "User profile info collected."
