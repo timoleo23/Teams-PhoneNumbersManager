@@ -123,7 +123,7 @@ AzFunctionIPs : '104.45.68.78,104.45.69.84,104.45.69.210,104.45.69.232,104.45.66
 
 You can download the instruction to deploy the Power App in this [link](./Media/Phone-System-Admin-app-Power-Platform-deployment-guide.pdf).
 
-The ZIP file mentionned in the document is available on this [link](./Packages/PowerApps/PhoneSystemSolution_1_0_1_2.zip).
+The ZIP file mentionned in the document is available on this [link](./Packages/PowerApps/PhoneSystemSolution_1_0_1_8.zip).
 
 
 >At the end of this step, the solution should work end-to-end - The next-steps are recommended but optional and are here to add more security into the solution using Azure AD authentication & controls.
